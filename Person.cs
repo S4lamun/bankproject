@@ -18,7 +18,7 @@ namespace bankproject
             get => pesel;
             set
             {
-                if(Regex.IsMatch(value,@"\d{11}"))
+                if(!Regex.IsMatch(value,@"\d{11}"))
                 {
                     throw new WrongPeselException("Pesel is invalid");
                 }
