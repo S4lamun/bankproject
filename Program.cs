@@ -1,30 +1,64 @@
 ﻿using bankproject;
-using System; 
-class Program
+using System;
+
+namespace bankproject
 {
-
-    public static void Test()
+    class Program
     {
-  
-        Person p1 = new("Jan", "Nowak", "11111111111", EnumSex.M);
-        Person p2 = new("Adam", "Kowalski", "22222222222", EnumSex.M);
 
-        Account a1 = new(p1, "Lolek1");
-        Account a2 = new(p2, "fJ2lek", 500m);
-        
-       
+        public static void Test()
+        {
 
-        Bank b1 = new("MyBank");
-        b1.AddAccount(a1);
-        b1.AddAccount(a2);
-        Console.WriteLine(b1);
-        
-        
+            //      STWORZENIE BANKU
 
-    }
-    static void Main()
-    {
-        Test();
-        
+
+			Bank b1 = new("MyBank");
+
+
+
+			
+
+			
+
+            //b1.AddEmployee(employee1);
+            //b1.AddEmployee(employee2);
+
+
+
+
+			BankCustomer customer4 = new("Jan", "Dzban", "33333333333", EnumSex.M);
+            BankCustomer customer5 = new("Marianna", "Dzban", "44444444444", EnumSex.K);
+            BankCustomer customer6 = new("Andrzej", "Baranowski", "55555555555", EnumSex.M);
+
+
+
+			Account a4 = new(customer4, "HASELKO1", 3m);
+            Account a5 = new(customer5, "HASELKO2", 500m);
+			Account a6 = new(customer6, "HASELKO3", 1500m);
+
+
+
+
+
+
+			b1.AddAccount(a4);
+            b1.AddAccount(a5);
+            b1.AddAccount(a6);
+
+			//Console.WriteLine(b1.FindAccount(1));
+            
+
+
+
+			Console.WriteLine(b1);
+
+            
+
+		}
+        static void Main()
+        {
+            Test();
+
+        }
     }
 }

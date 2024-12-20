@@ -10,18 +10,21 @@ namespace bankproject
 {
     internal class Account : IComparable<Account>
     {
-        Person owner;
+        
+        BankCustomer owner;
         string password;
         decimal balance;
         long accountNumber; //26digits
 
-        #region Static
+        #region 
         static long bankAccountNumber;
 
         static Account()
         {
             bankAccountNumber = 00000000000000000000000001;
-        }
+			
+
+		}
         #endregion
 
         #region Properties
@@ -44,7 +47,7 @@ namespace bankproject
 
 
 
-        public Account(Person owner, string password) //contructor if owner doesn't give any money in deposite
+        public Account(BankCustomer owner, string password) //contructor if owner doesn't give any money in deposite
         {
             this.owner = owner;
             Password = password;
@@ -53,7 +56,7 @@ namespace bankproject
             bankAccountNumber++;
         }
 
-        public Account(Person owner, string password, decimal balance) // contrutor if owner deposit money
+        public Account(BankCustomer owner, string password, decimal balance) // contrutor if owner deposit money
         {
             this.owner = owner;
             Password = password;
@@ -61,6 +64,17 @@ namespace bankproject
             AccountNumber = bankAccountNumber;
             bankAccountNumber++;
         }
+
+
+     
+
+
+
+
+
+
+
+
 
         public void Transfer(Account a1, decimal amount)
         {
@@ -99,5 +113,8 @@ namespace bankproject
             if (other == null) return 1;
             else return Balance.CompareTo(other.Balance);
         }
+
+
+
     }
 }

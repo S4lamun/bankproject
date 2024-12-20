@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace bankproject
 {
 
-    enum EnumSex {K, M}
-    internal class Person
+   public enum EnumSex {K, M}
+    public abstract class Person
     {
-        string name;
-        string surrname;
-        string pesel;
-        EnumSex sex;
+        public string name;
+        public string surrname;
+        private string pesel;
+        public EnumSex sex;
         #region Properties
         public string Pesel
         {

@@ -10,8 +10,10 @@ namespace bankproject
     {
         public void AddAccount (Account account);
         public void RemoveAccount (Account account);
-        public void DisplayAllAccounts ();
+        public string DisplayAllAccounts ();
         public decimal SumAllBalance();
         public Account FindAccount(long accountNumber);
-    }
+        public string DisplayAllEmployess();
+
+	}
 }
