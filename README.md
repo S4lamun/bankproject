@@ -1,1 +1,2 @@
 # bankproject
+Projekt symulacji banku
