@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace bankproject
 {
+
+    enum EnumSex {K, M}
     internal class Person
     {
         string name;
         string surrname;
         string pesel;
+        EnumSex sex;
         #region Properties
         public string Pesel
         {
@@ -27,16 +30,17 @@ namespace bankproject
         }
         #endregion
 
-        public Person(string name, string surrname, string pesel)
+        public Person(string name, string surrname, string pesel, EnumSex sex)
         {
             this.name = name;
             this.surrname = surrname;
             Pesel = pesel;
+            this.sex = sex;
         }
 
         public override string ToString()
         {
-            return $"{name} {surrname}, PESEL: {Pesel}";
+            return $"{name} {surrname} [{sex}], PESEL: {Pesel}";
         }
 
         

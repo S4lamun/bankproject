@@ -2,26 +2,29 @@
 using System; 
 class Program
 {
+
+    public static void Test()
+    {
+  
+        Person p1 = new("Jan", "Nowak", "11111111111", EnumSex.M);
+        Person p2 = new("Adam", "Kowalski", "22222222222", EnumSex.M);
+
+        Account a1 = new(p1, "Lolek1");
+        Account a2 = new(p2, "fJ2lek", 500m);
+        
+       
+
+        Bank b1 = new("MyBank");
+        b1.AddAccount(a1);
+        b1.AddAccount(a2);
+        Console.WriteLine(b1);
+        
+        
+
+    }
     static void Main()
     {
-        Console.WriteLine("Hello world!");
-        Console.WriteLine("Yoooo");
-		Console.WriteLine("ELO");
-
-        Person p1 = new("Jan", "Nowak", "11111111111");
-        Person p2 = new("Adam", "Kowalski", "22222222222");
-        Console.WriteLine(p1);
-        Console.WriteLine(p2);
-
-        Account a1 = new(p1, "lolek");
-        Account a2 = new(p2, "fjolek", 500m);
-        Console.WriteLine(a1);
-        Console.WriteLine(a2);
-        a1.Transfer(a2, 200m);
-        Console.WriteLine(a1);
-        Console.WriteLine(a2);
-
-
-      
+        Test();
+        
     }
 }
