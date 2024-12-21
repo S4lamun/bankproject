@@ -17,11 +17,11 @@ namespace bankproject
 
 
 
-			
 
-			
-           // BankEmployee employee3 = new()
 
+
+            BankEmployee employee3 = new("Jan", "Dzban", "33333333333", EnumSex.M, 2, "HASELKO4");
+            b1.AddEmployee(employee3);
 
 
 

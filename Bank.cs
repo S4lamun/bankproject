@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.ConstrainedExecution;
-using System.Security.Cryptography;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Xml.Serialization;
 
 
@@ -19,7 +11,7 @@ namespace bankproject
 
 	public class Bank : IBank //it's for admin 
 	{
-		
+
 
 		public string name;
 
@@ -79,36 +71,36 @@ namespace bankproject
 		#region INITIATION
 
 
-								//EMPLOYEES INITIATION
+		//EMPLOYEES INITIATION
 
 
-		static BankEmployee employee1 = new("Jan", "Nowak", "11111111111", EnumSex.M, 1, "HasloPracownika1");
-		static BankEmployee employee2 = new("Adam", "Kowalski", "22222222222", EnumSex.M, 2, "HasloPracownika2");
-
-
-		
-
-
-
-								//CUSTOMERS INITIATION
-
-
-		static BankCustomer customer1 = new("Marian", "Warzecha", "78787878787", EnumSex.M);
-		static BankCustomer customer2 = new("Maja", "Ujoska", "66666666666", EnumSex.K);
-		static BankCustomer customer3 = new("Hania", "Genzi", "65656565656", EnumSex.K);
+		readonly static BankEmployee employee1 = new("Jan", "Nowak", "11111111111", EnumSex.M, 1, "HasloPracownika1");
+		readonly static BankEmployee employee2 = new("Adam", "Kowalski", "22222222222", EnumSex.M, 2, "HasloPracownika2");
 
 
 
 
-								//ACCOUNTS INITIATION
 
 
-		static Account a1 = new(customer1, "HASELKO1", 3m);
-		static Account a2 = new(customer2, "HASELKO2", 500m);
-		static Account a3 = new(customer3, "HASELKO3", 1500m);
+		//CUSTOMERS INITIATION
 
 
-        
+		readonly static BankCustomer customer1 = new("Marian", "Warzecha", "78787878787", EnumSex.M);
+		readonly static BankCustomer customer2 = new("Maja", "Ujoska", "66666666666", EnumSex.K);
+		readonly static BankCustomer customer3 = new("Hania", "Genzi", "65656565656", EnumSex.K);
+
+
+
+
+		//ACCOUNTS INITIATION
+
+
+		readonly static Account a1 = new(customer1, "HASELKO1", 3m);
+		readonly static Account a2 = new(customer2, "HASELKO2", 500m);
+		readonly static Account a3 = new(customer3, "HASELKO3", 1500m);
+
+
+
 		// nie da sie ich usunac, bo lista dictionary jest tworzone od razu z nimi
 		#endregion
 
@@ -117,16 +109,22 @@ namespace bankproject
 		#region EMPLOYEE
 
 
-								//ADDING EMPLOYEE TO EMPLOYEES LIST
+		//ADDING EMPLOYEE TO EMPLOYEES LIST
 
 
 		public void AddEmployee(BankEmployee employee)
 		{
-			bankEmployees.Add(employee.EmployeeID, employee);
+			
+
+			if (!bankEmployees.ContainsKey(employee.EmployeeID))
+			{
+				bankEmployees.Add(employee.EmployeeID, employee);
+			}
+			else Console.WriteLine($"There is an employee which this Employee ID! {employee.EmployeeID}");
 		}
 
 
-								//REMOVING EMPLOYEE FROM THE EMPLOYEES LIST
+		//REMOVING EMPLOYEE FROM THE EMPLOYEES LIST
 
 
 		public void RemoveEmployee(BankEmployee employee)
@@ -162,52 +160,60 @@ namespace bankproject
 		#region ACCOUNT
 
 
-								//ADDING ACCOUNT TO THE BANK
+		//ADDING ACCOUNT TO THE BANK
 
 
-		public void AddAccount(Account account) => accounts.Add(account.AccountNumber, account); 
+		public void AddAccount(Account account)
+		{
+			
+			if (!accounts.ContainsKey(account.AccountNumber))
+			{
+				accounts.Add(account.AccountNumber, account);
+			}
+			else Console.WriteLine($"There is an account which this Account Number! {account.AccountNumber}"); // nie lepiej wyrzucic wyjatek?
+		}
 
 
-								//REMOVING ACCOUNT FROM THE BANK
+		//REMOVING ACCOUNT FROM THE BANK
 
 
-		public void RemoveAccount(Account account) 
-        {
-            
-            if (accounts.ContainsKey(account.AccountNumber))
-            {
-                accounts.Remove(account.AccountNumber);
-            }
-            else Console.WriteLine($"There is not account which this Account Number! {account.AccountNumber}");
+		public void RemoveAccount(Account account)
+		{
 
-        }
+			if (accounts.ContainsKey(account.AccountNumber))
+			{
+				accounts.Remove(account.AccountNumber);
+			}
+			else Console.WriteLine($"There is not account which this Account Number! {account.AccountNumber}");
 
-
-								//DISPLAYING ALL ACCOUNTS FROM THE BANK
+		}
 
 
-		public string DisplayAllAccounts() 
-        {
-            StringBuilder sb = new StringBuilder();
-            int i = 1;
-            sb.Append("\n");
-            if (accounts.Count == 0)
-            {
-                return "Accounts list is empty";
-            }
-            else
-            {
-                foreach (var account in accounts.Values)
-                {
-                    sb.AppendLine($"{i}. " + account.ToString());
-                    i++;
-                }
-                return sb.ToString();
-            }
-        }
+		//DISPLAYING ALL ACCOUNTS FROM THE BANK
 
 
-								//FINDING ACCOUNT IN THE BANK
+		public string DisplayAllAccounts()
+		{
+			StringBuilder sb = new StringBuilder();
+			int i = 1;
+			sb.Append("\n");
+			if (accounts.Count == 0)
+			{
+				return "Accounts list is empty";
+			}
+			else
+			{
+				foreach (Account account in accounts.Values)
+				{
+					sb.AppendLine($"{i}. " + account.ToString());
+					i++;
+				}
+				return sb.ToString();
+			}
+		}
+
+
+		//FINDING ACCOUNT IN THE BANK
 
 
 		public Account FindAccount(long accountNumber)      // nie jestem pewny czy to dobrze dziala
@@ -221,7 +227,7 @@ namespace bankproject
 				throw new WrongAccountException($"There is no account with this number: {accountNumber}");
 			}
 		}
-#endregion 
+		#endregion
 
 
 		//		BANK STUFF
@@ -229,7 +235,7 @@ namespace bankproject
 
 
 
-								//TOTAL BANK BALANCE FROM ALL ACCOUNTS
+		//TOTAL BANK BALANCE FROM ALL ACCOUNTS
 
 
 		public virtual decimal SumAllBalance() => accounts.Values.Sum(a => a.Balance);
@@ -255,16 +261,16 @@ namespace bankproject
 
 
 
-		public override string ToString() 
-        {
+		public override string ToString()
+		{
 
-            return $" \"Welcome in {name}\" \n \t \t Summarized balance: {SumAllBalance():C} \n\n\nAccounts in \"{name}\": {DisplayAllAccounts().ToString()}" + $"\nList of employees: {DisplayAllEmployess()}";
-                
-        }
+			return $" \"Welcome in {name}\" \n \t \t Summarized balance: {SumAllBalance():C} \n\n\nAccounts in \"{name}\": {DisplayAllAccounts().ToString()}" + $"\nList of employees: {DisplayAllEmployess()}";
+
+		}
 
 
 
-		
+
 
 
 
