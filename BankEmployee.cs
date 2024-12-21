@@ -14,6 +14,7 @@ namespace bankproject
 		private long employeeID;
 		private string employeePassword;
 
+		public BankEmployee() { }
 		public BankEmployee(string name, string surrname, string pesel, EnumSex sex, long employeeID, string employeePassword) :base(name, surrname, pesel, sex) 
 		{
 			EmployeeID = employeeID;

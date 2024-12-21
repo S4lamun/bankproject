@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace bankproject
 {
 
-   public enum EnumSex {K, M}
+   
     public abstract class Person
     {
         public string name;
@@ -30,6 +30,7 @@ namespace bankproject
         }
         #endregion
 
+        public Person() { }
         public Person(string name, string surrname, string pesel, EnumSex sex)
         {
             this.name = name;
@@ -45,4 +46,10 @@ namespace bankproject
 
         
     }
+
+
+
+
+
+	public enum EnumSex { K, M }
 }

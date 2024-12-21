@@ -2,26 +2,78 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 
 
 namespace bankproject
 {
+	[XmlInclude(typeof(Account))]
+	[XmlInclude(typeof(BankCustomer))]
+	[XmlInclude(typeof(BankEmployee))]
 
-
-    internal class Bank : IBank //it's for admin 
+	public class Bank : IBank //it's for admin 
 	{
-
+		
 
 		public string name;
 
+		[XmlIgnore]
+		public static Dictionary<long, Account> accounts;
+
+		public List<Account> accountsForXML;
+
+		[XmlIgnore]
+		public static Dictionary<long, BankEmployee> bankEmployees;
+
+		public List<BankEmployee> employeesForXML;
+
+		public Bank() { }
 		public Bank(string name)
 		{
 			this.name = name;
+
+			accountsForXML = new List<Account>
+			{
+			{a1},
+			{a2},
+			{a3}
+
+			};
+			employeesForXML = new List<BankEmployee>
+			{
+
+			{employee1},
+
+			{employee2}
+
+			};
+
+
+
+			bankEmployees = new Dictionary<long, BankEmployee>
+			{
+
+			{employee1.EmployeeID,employee1},
+
+			{employee2.EmployeeID,employee2}
+
+			};
+
+
+			accounts = new Dictionary<long, Account>
+			{
+			{a1.AccountNumber, a1 },
+			{a2.AccountNumber, a2 },
+			{a3.AccountNumber, a3 }
+
+			};
+
 		}
 		//		INITIATION
 		#region INITIATION
@@ -34,12 +86,7 @@ namespace bankproject
 		static BankEmployee employee2 = new("Adam", "Kowalski", "22222222222", EnumSex.M, 2, "HasloPracownika2");
 
 
-		static Dictionary<long, BankEmployee> bankEmployees = new()
-		{
-			{employee1.EmployeeID,employee1},
-
-			{employee2.EmployeeID,employee2}
-		};
+		
 
 
 
@@ -61,13 +108,7 @@ namespace bankproject
 		static Account a3 = new(customer3, "HASELKO3", 1500m);
 
 
-        static Dictionary<long, Account> accounts = new()
-        {
-            {a1.AccountNumber, a1 },
-            {a2.AccountNumber, a2 },
-            {a3.AccountNumber, a3 }
-
-        };
+        
 		// nie da sie ich usunac, bo lista dictionary jest tworzone od razu z nimi
 		#endregion
 
@@ -196,7 +237,19 @@ namespace bankproject
 
 
 
+		public void SaveXml(string fileName)
+		{
+			using StreamWriter sr = new(fileName);
+			XmlSerializer xs = new(typeof(Bank));
+			xs.Serialize(sr, this);
 
+		}
+		public static Bank ReadXML(string fileName)
+		{
+			using StreamReader sr = new(fileName);
+			XmlSerializer xs = new(typeof(Bank));
+			return xs.Deserialize(sr) as Bank;
+		}
 
 
 

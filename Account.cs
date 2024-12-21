@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace bankproject
 {
-    internal class Account : IComparable<Account>
+    public class Account : IComparable<Account>
     {
         
         BankCustomer owner;
@@ -18,7 +18,7 @@ namespace bankproject
 
         #region 
         static long bankAccountNumber;
-
+        public Account() { }
         static Account()
         {
             bankAccountNumber = 00000000000000000000000001;
@@ -42,6 +42,8 @@ namespace bankproject
         }
         public long AccountNumber { get => accountNumber; init => accountNumber = value; }
         public decimal Balance { get => balance; set => balance = value; }
+
+        public BankCustomer Owner { get => owner; set => owner = value; }
 
         #endregion
 

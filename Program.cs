@@ -1,5 +1,6 @@
 ﻿using bankproject;
 using System;
+using System.Runtime.Intrinsics.X86;
 
 namespace bankproject
 {
@@ -19,9 +20,7 @@ namespace bankproject
 			
 
 			
-
-            //b1.AddEmployee(employee1);
-            //b1.AddEmployee(employee2);
+           // BankEmployee employee3 = new()
 
 
 
@@ -52,13 +51,13 @@ namespace bankproject
 
 			Console.WriteLine(b1);
 
-            
+            b1.SaveXml("The Bank");
 
 		}
         static void Main()
         {
             Test();
-
+            
         }
     }
 }

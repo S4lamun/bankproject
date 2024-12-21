@@ -10,7 +10,7 @@ namespace bankproject
 	public class BankCustomer : Person
 	{
 
-		
+		public BankCustomer() { }
 
 		public BankCustomer(string name, string surrname, string pesel, EnumSex sex) : base(name, surrname, pesel, sex) 
 		{
