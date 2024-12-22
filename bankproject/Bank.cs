@@ -26,6 +26,14 @@ namespace bankproject
 		public List<BankEmployee> employeesForXML;
 
 		public Bank() { }
+
+		public Bank(string name)
+		{
+			this.name = name;
+            accounts = new Dictionary<long, Account>();
+            bankEmployees = new Dictionary<long, BankEmployee>();
+        }
+		/*
 		public Bank(string name)
 		{
 			this.name = name;
@@ -103,7 +111,7 @@ namespace bankproject
 
 		// nie da sie ich usunac, bo lista dictionary jest tworzone od razu z nimi
 		#endregion
-
+		*/
 
 		//		EMPLOYEE STUFF
 		#region EMPLOYEE
@@ -175,7 +183,8 @@ namespace bankproject
 			{
 				accounts.Add(account.AccountNumber, account);
 			}
-			else Console.WriteLine($"There is an account which this Account Number! {account.AccountNumber}"); // nie lepiej wyrzucic wyjatek?
+			else
+			throw new WrongAccountException($"There is an account which this Account Number! {account.AccountNumber}");
 		}
 
 
@@ -291,11 +300,6 @@ namespace bankproject
 
 
             Bank b1 = new("MyBank");
-
-
-
-
-
 
             BankEmployee employee3 = new("Filip", "Dzban", "66666666666", EnumSex.M, 2, "HASELKO4");
             b1.AddEmployee(employee3);
