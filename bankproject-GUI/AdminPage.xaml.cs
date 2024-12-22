@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using bankproject;
+
 
 
 namespace bankproject_GUI
@@ -24,7 +26,9 @@ namespace bankproject_GUI
         public AdminPage()
         {
             InitializeComponent();
-            
+            Bank.CreateBank();
+            Bank b1 = Bank.ReadXML("MyBank.xml");
+           
         }
     }
 }
