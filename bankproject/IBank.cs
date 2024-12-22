@@ -14,7 +14,7 @@ namespace bankproject
         public decimal SumAllBalance();
         public Account FindAccount(long accountNumber);
 
-        public bool FindAccount(string password);
+        public Account? FindAccount(string password);
         public string DisplayAllEmployess();
 
 	}

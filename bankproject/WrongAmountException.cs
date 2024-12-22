@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bankproject
 {
-    internal class WrongAmountException:Exception
+    public class WrongAmountException:Exception
     {
         string message;
         public WrongAmountException(string message)

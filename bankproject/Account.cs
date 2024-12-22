@@ -15,7 +15,7 @@ namespace bankproject
 		public Account() { }
 		static Account()
 		{
-			bankAccountNumber = 00000000000000000000000001;
+			bankAccountNumber = 0000000000000000001;
 
 
 		}
@@ -101,7 +101,7 @@ namespace bankproject
 
 		public override string ToString()
 		{
-			return $"{owner}, Balance: {Balance:C}, Bank Account Number: {AccountNumber:D26}";
+			return $"{owner}, Balance: {Balance:C}, Bank Account Number: {AccountNumber:D19}";
 		}
 
 		public int CompareTo(Account? other)

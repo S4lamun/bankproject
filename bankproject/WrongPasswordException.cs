@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bankproject
 {
-    internal class WrongPasswordException:Exception
+    public class WrongPasswordException:Exception
     {
         string message;
         public WrongPasswordException(string message)

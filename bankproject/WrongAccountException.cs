@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bankproject
 {
-    internal class WrongAccountException:Exception
+    public class WrongAccountException:Exception
     {
         string message;
         public WrongAccountException(string message)

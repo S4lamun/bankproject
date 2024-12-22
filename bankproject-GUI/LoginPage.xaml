@@ -9,7 +9,7 @@
       Title="LoginPage">
 
     <Grid Background="LightBlue">
-        <TextBlock x:Name="LogInText" HorizontalAlignment="Left" Height="86" Margin="121,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="473"><Run Language="pl-pl" Text="Logowanie"/></TextBlock>
+        <TextBlock x:Name="LogInText" HorizontalAlignment="Left" Height="86" Margin="121,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="473"><Run Language="pl-pl" Text="Log in"/></TextBlock>
         <Button x:Name="LogInButton" Content="LOG IN" HorizontalAlignment="Left" Height="60" Margin="566,336,0,0" VerticalAlignment="Top" Width="167" Click="LogInButton_Click"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="49" Margin="206,106,0,0"  VerticalAlignment="Top" Width="239" />
         <TextBlock x:Name="PasswordText" HorizontalAlignment="Left" Height="49" Margin="51,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="pl-pl" Text="Password:"/></TextBlock>

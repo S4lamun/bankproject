@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bankproject
 {
-    internal class WrongPeselException:Exception
+    public class WrongPeselException:Exception
     {
         string message;
         public WrongPeselException(string message) 

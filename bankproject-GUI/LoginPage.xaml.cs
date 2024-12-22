@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,13 +36,19 @@ namespace bankproject_GUI
             Bank b1 = Bank.ReadXML("MyBank.xml");
             string password = PasswordBox.Password;
             
-            if(password == "admin")
+            if(b1.FindEmpolyee(password))
             {
                 mainWindow.MainFrame.Navigate(new AdminPage());
             }
-            else if(b1.FindAccount(password))
+            else if(b1.FindAccount(password) is not null)
             {
-                mainWindow.MainFrame.Navigate(new UserPage());
+                mainWindow.LoggedInUser = b1.FindAccount(password);
+                mainWindow.MainFrame.Navigate(new UserPage(mainWindow.LoggedInUser, b1));
+            }
+            else
+            {
+                NoAccountWindow noAccountWindow = new NoAccountWindow();
+                noAccountWindow.ShowDialog();
             }
             
             

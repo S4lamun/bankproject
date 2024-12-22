@@ -138,6 +138,11 @@ namespace bankproject
 
 		}
 
+		public bool FindEmpolyee(string password)
+		{
+			return bankEmployees.Values.Any(t => t.EmployeePassword == password);
+        }
+
 
 
 		//DISPLAYING ALL ACCOUNTS FROM THE BANK
@@ -229,9 +234,9 @@ namespace bankproject
 		}
 
 
-		public bool FindAccount(string password)
+		public Account? FindAccount(string password)
 		{
-            return accounts.Values.Any(t => t.Password == password); // searching dictionary by password
+            return accounts.Values.FirstOrDefault(t => t.Password == password); // searching dictionary by password
         }
 
         #endregion
