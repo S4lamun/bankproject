@@ -9,4 +9,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\bankproject\bankproject.csproj" />
+  </ItemGroup>
+
+ 
+
 </Project>

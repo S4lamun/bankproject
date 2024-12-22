@@ -1,0 +1,17 @@
+﻿<Page x:Class="bankproject_GUI.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:bankproject_GUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoginPage">
+
+    <Grid Background="LightBlue">
+        <TextBlock x:Name="LogInText" HorizontalAlignment="Left" Height="86" Margin="121,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="473"><Run Language="pl-pl" Text="Logowanie"/></TextBlock>
+        <Button x:Name="LogInButton" Content="LOG IN" HorizontalAlignment="Left" Height="60" Margin="566,336,0,0" VerticalAlignment="Top" Width="167" Click="LogInButton_Click"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="49" Margin="206,106,0,0"  VerticalAlignment="Top" Width="239" />
+        <TextBlock x:Name="PasswordText" HorizontalAlignment="Left" Height="49" Margin="51,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="pl-pl" Text="Password:"/></TextBlock>
+    </Grid>
+</Page>

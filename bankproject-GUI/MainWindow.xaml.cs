@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using bankproject;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace bankproject_GUI
 {
 	/// <summary>
@@ -16,9 +18,13 @@ namespace bankproject_GUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		public Account? LoggedInUser { get; set; }
 		public MainWindow()
 		{
 			InitializeComponent();
+			MainFrame.Navigate(new LoginPage(this));
+			
+
 		}
 	}
 }
