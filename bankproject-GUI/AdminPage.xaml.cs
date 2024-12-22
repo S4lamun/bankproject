@@ -26,8 +26,7 @@ namespace bankproject_GUI
         public AdminPage()
         {
             InitializeComponent();
-            Bank.CreateBank();
-            Bank b1 = Bank.ReadXML("MyBank.xml");
+            
            
         }
     }

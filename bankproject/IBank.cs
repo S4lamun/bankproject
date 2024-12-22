@@ -13,6 +13,8 @@ namespace bankproject
         public string DisplayAllAccounts ();
         public decimal SumAllBalance();
         public Account FindAccount(long accountNumber);
+
+        public bool FindAccount(string password);
         public string DisplayAllEmployess();
 
 	}

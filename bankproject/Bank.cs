@@ -227,18 +227,25 @@ namespace bankproject
 				throw new WrongAccountException($"There is no account with this number: {accountNumber}");
 			}
 		}
-		#endregion
 
 
-		//		BANK STUFF
-		#region BANK
+		public bool FindAccount(string password)
+		{
+            return accounts.Values.Any(t => t.Password == password); // searching dictionary by password
+        }
+
+        #endregion
+
+
+        //		BANK STUFF
+        #region BANK
 
 
 
-		//TOTAL BANK BALANCE FROM ALL ACCOUNTS
+        //TOTAL BANK BALANCE FROM ALL ACCOUNTS
 
 
-		public virtual decimal SumAllBalance() => accounts.Values.Sum(a => a.Balance);
+        public virtual decimal SumAllBalance() => accounts.Values.Sum(a => a.Balance);
 		#endregion
 
 
@@ -271,36 +278,6 @@ namespace bankproject
 
 
 
-
-
-
-
-		private bool AskForIDAndPassword()
-		{
-			Console.WriteLine("Insert ID:");
-			string userInput = Console.ReadLine();
-
-
-
-			if (!long.TryParse(userInput, out long result)) { Console.WriteLine("Invalid ID (ID is not numeric)"); return false; };
-
-			long inputID = result;
-
-			Console.WriteLine("Password:");
-			string inputPass = Console.ReadLine();
-
-
-
-			if (!bankEmployees.ContainsKey((inputID)))
-			{
-				Console.WriteLine("Invalid ID or password");
-				return false;
-			}
-
-			return true;
-
-
-		}
 
         public static void CreateBank()
         {

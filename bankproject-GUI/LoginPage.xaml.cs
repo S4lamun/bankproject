@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using bankproject;
 
 namespace bankproject_GUI
 {
@@ -26,15 +27,23 @@ namespace bankproject_GUI
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            
         }
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
+            Bank.CreateBank();
+            Bank b1 = Bank.ReadXML("MyBank.xml");
             string password = PasswordBox.Password;
-            Console.WriteLine(password);
+            
             if(password == "admin")
             {
                 mainWindow.MainFrame.Navigate(new AdminPage());
             }
+            else if(b1.FindAccount(password))
+            {
+                mainWindow.MainFrame.Navigate(new UserPage());
+            }
+            
             
         }
         
