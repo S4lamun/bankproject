@@ -9,6 +9,7 @@ public abstract class Person
     public EnumSex sex;
     public string surname;
     
+    public Person() { }
     public Person(string name, string surname, string pesel, EnumSex sex)
     {
         this.name = name;

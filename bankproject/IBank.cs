@@ -7,7 +7,6 @@ internal interface IBank
     public string DisplayAllAccounts();
     public decimal SumAllBalance();
     public Account FindAccount(long accountNumber);
-
     public Account? FindAccount(string password);
     public string DisplayAllEmployess();
 }

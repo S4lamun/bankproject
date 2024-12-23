@@ -7,6 +7,7 @@ public class BankEmployee : Person
 {
     private readonly string employeePassword;
 
+    public BankEmployee() { }
     public BankEmployee(string name, string surname, string pesel, EnumSex sex, long employeeID,
         string employeePassword) : base(name, surname, pesel, sex)
     {

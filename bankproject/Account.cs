@@ -5,8 +5,7 @@ namespace bankproject;
 public class Account : IComparable<Account>
 {
     private readonly string password;
-    
-
+    public Account() { }
     public Account(BankCustomer owner, string password, decimal balance)
     {
         this.Owner = owner;

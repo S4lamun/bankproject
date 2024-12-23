@@ -25,7 +25,7 @@ public class Bank : IBank //it's for admin
     //          accounts = new Dictionary<long, Account>();
     //          bankEmployees = new Dictionary<long, BankEmployee>();
     //      }
-
+    public Bank() { }
     public Bank(string name)
     {
         this.name = name;
