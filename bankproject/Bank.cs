@@ -27,13 +27,13 @@ namespace bankproject
 
 		public Bank() { }
 
-		public Bank(string name)
-		{
-			this.name = name;
-            accounts = new Dictionary<long, Account>();
-            bankEmployees = new Dictionary<long, BankEmployee>();
-        }
-		/*
+		//public Bank(string name)
+		//{
+		//	this.name = name;
+  //          accounts = new Dictionary<long, Account>();
+  //          bankEmployees = new Dictionary<long, BankEmployee>();
+  //      }
+		
 		public Bank(string name)
 		{
 			this.name = name;
@@ -82,8 +82,8 @@ namespace bankproject
 		//EMPLOYEES INITIATION
 
 
-		readonly static BankEmployee employee1 = new("Jan", "Nowak", "11111111111", EnumSex.M, 1, "HasloPracownika1");
-		readonly static BankEmployee employee2 = new("Adam", "Kowalski", "22222222222", EnumSex.M, 2, "HasloPracownika2");
+		static BankEmployee employee1 = new("Jan", "Nowak", "11111111111", EnumSex.M, 1, "HasloPracownika1");
+		static BankEmployee employee2 = new("Adam", "Kowalski", "22222222222", EnumSex.M, 2, "HasloPracownika2");
 
 
 
@@ -93,9 +93,9 @@ namespace bankproject
 		//CUSTOMERS INITIATION
 
 
-		readonly static BankCustomer customer1 = new("Marian", "Warzecha", "78787878787", EnumSex.M);
-		readonly static BankCustomer customer2 = new("Maja", "Ujoska", "66666666666", EnumSex.K);
-		readonly static BankCustomer customer3 = new("Hania", "Genzi", "65656565656", EnumSex.K);
+		static BankCustomer customer1 = new("Marian", "Warzecha", "78787878787", EnumSex.M);
+		static BankCustomer customer2 = new("Maja", "Ujoska", "66666666666", EnumSex.K);
+		static BankCustomer customer3 = new("Hania", "Genzi", "65656565656", EnumSex.K);
 
 
 
@@ -103,15 +103,15 @@ namespace bankproject
 		//ACCOUNTS INITIATION
 
 
-		readonly static Account a1 = new(customer1, "HASELKO1", 3m);
-		readonly static Account a2 = new(customer2, "HASELKO2", 500m);
-		readonly static Account a3 = new(customer3, "HASELKO3", 1500m);
+		static Account a1 = new(customer1, "HASELKO1", 3m);
+		static Account a2 = new(customer2, "HASELKO2", 500m);
+		static Account a3 = new(customer3, "HASELKO3", 1500m);
 
 
 
 		// nie da sie ich usunac, bo lista dictionary jest tworzone od razu z nimi
 		#endregion
-		*/
+		
 
 		//		EMPLOYEE STUFF
 		#region EMPLOYEE
@@ -303,10 +303,33 @@ namespace bankproject
 
             BankEmployee employee3 = new("Filip", "Dzban", "66666666666", EnumSex.M, 2, "HASELKO4");
             b1.AddEmployee(employee3);
+			BankEmployee employee1 = new("Jan", "Nowak", "11111111111", EnumSex.M, 1, "HasloPracownika1");
+			BankEmployee employee2 = new("Adam", "Kowalski", "22222222222", EnumSex.M, 2, "HasloPracownika2");
 
 
 
-            BankCustomer customer4 = new("Jan", "Dzban", "33333333333", EnumSex.M);
+
+
+
+			//CUSTOMERS INITIATION
+
+
+			BankCustomer customer1 = new("Marian", "Warzecha", "78787878787", EnumSex.M);
+			BankCustomer customer2 = new("Maja", "Ujoska", "66666666666", EnumSex.K);
+			BankCustomer customer3 = new("Hania", "Genzi", "65656565656", EnumSex.K);
+
+
+
+
+			//ACCOUNTS INITIATION
+
+
+			Account a1 = new(customer1, "HASELKO1", 3m);
+			Account a2 = new(customer2, "HASELKO2", 500m);
+			Account a3 = new(customer3, "HASELKO3", 1500m);
+
+
+			BankCustomer customer4 = new("Jan", "Dzban", "33333333333", EnumSex.M);
             BankCustomer customer5 = new("Marianna", "Dzban", "44444444444", EnumSex.K);
             BankCustomer customer6 = new("Andrzej", "Baranowski", "55555555555", EnumSex.M);
 
