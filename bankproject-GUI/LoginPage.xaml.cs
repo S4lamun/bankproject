@@ -43,7 +43,7 @@ namespace bankproject_GUI
             else if(b1.FindAccount(password) is not null)
             {
                 mainWindow.LoggedInUser = b1.FindAccount(password);
-                mainWindow.MainFrame.Navigate(new UserPage(mainWindow.LoggedInUser, b1));
+                mainWindow.MainFrame.Navigate(new UserPage(mainWindow, b1));
             }
             else
             {

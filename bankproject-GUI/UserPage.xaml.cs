@@ -21,13 +21,15 @@ namespace bankproject_GUI
     /// </summary>
     public partial class UserPage : Page
     {
-        
-        private Account user;
+
+        Account user;
+        MainWindow mainWindow;
         private Bank bank;
-        public UserPage(Account user, Bank bank)
+        public UserPage(MainWindow mainWindow, Bank bank)
         {
             InitializeComponent();
-            this.user = user;
+            this.mainWindow = mainWindow;
+            this.user = mainWindow.LoggedInUser;
             this.bank = bank;
             NameBox.Text = $"{user.Owner.name} {user.Owner.surrname}";
             BalanceBox.Text = $"{user.Balance:C}";
@@ -69,10 +71,20 @@ namespace bankproject_GUI
             }
         }
 
+        
+        private void LogoutButton_Click(Object sender, RoutedEventArgs e)
+        {
+            mainWindow.MainFrame.Navigate( new LoginPage(mainWindow));
+            //this.bank.SaveXml("../../../../MyBank.xml"); do naprawienia 
 
+        }
         
-      
         
+
+
+
+
+
 
 
     }
