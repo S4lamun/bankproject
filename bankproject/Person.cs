@@ -1,50 +1,44 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace bankproject
+namespace bankproject;
+
+public abstract class Person
 {
+    public string name;
+    private string pesel;
+    public EnumSex sex;
+    public string surname;
+    
+    public Person(string name, string surname, string pesel, EnumSex sex)
+    {
+        this.name = name;
+        this.surname = surname;
+        Pesel = pesel;
+        this.sex = sex;
+    }
 
+    #region Properties
 
-	public abstract class Person
-	{
-		public string name;
-		public string surrname;
-		private string pesel;
-		public EnumSex sex;
-		#region Properties
-		public string Pesel
-		{
-			get => pesel;
-			set
-			{
-				if (!Regex.IsMatch(value, @"\d{11}"))
-				{
-					throw new WrongPeselException("Pesel is invalid");
-				}
-				pesel = value;
-			}
-		}
-		#endregion
+    public string Pesel
+    {
+        get => pesel;
+        set
+        {
+            if (!Regex.IsMatch(value, @"\d{11}")) throw new WrongPeselException("Pesel is invalid");
+            pesel = value;
+        }
+    }
 
-		public Person() { }
-		public Person(string name, string surrname, string pesel, EnumSex sex)
-		{
-			this.name = name;
-			this.surrname = surrname;
-			Pesel = pesel;
-			this.sex = sex;
-		}
+    #endregion
 
-		public override string ToString()
-		{
-			return $"{name} {surrname} [{sex}], PESEL: {Pesel}";
-		}
+    public override string ToString()
+    {
+        return $"{name} {surname} [{sex}], PESEL: {Pesel}";
+    }
+}
 
-
-	}
-
-
-
-
-
-	public enum EnumSex { K, M }
+public enum EnumSex
+{
+    K,
+    M
 }

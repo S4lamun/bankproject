@@ -1,116 +1,86 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace bankproject
+namespace bankproject;
+
+public class Account : IComparable<Account>
 {
-	public class Account : IComparable<Account>
-	{
+    private readonly string password;
+    
 
-		BankCustomer owner;
-		string password;
-		decimal balance;
-		long accountNumber; //26digits
+    public Account(BankCustomer owner, string password, decimal balance)
+    {
+        this.Owner = owner;
+        Password = password;
+        Balance = balance;
+        AccountNumber = bankAccountNumber;
+        bankAccountNumber++;
+    }
 
-		#region 
-		static long bankAccountNumber;
-		public Account() { }
-		static Account()
-		{
-			bankAccountNumber = 0000000000000000001;
-
-
-		}
-		#endregion
-
-		#region Properties
-		public string Password // password must have at least: 1 capital letter, 1 digit, 1 special character and must be at least 6 characters long    
-		{
-			get => password;
-			init
-			{
-				if (!Regex.IsMatch(value, @"^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$"))
-				{
-					throw new WrongPasswordException("Password must have at least 1 capital letter, 1 digit, and be at least 6 characters long (no special characters).");
-				}
-				password = value;
-			}
-		}
-		public long AccountNumber { get => accountNumber; init => accountNumber = value; }
-		public decimal Balance { get => balance; set => balance = value; }
-
-		public BankCustomer Owner { get => owner; set => owner = value; }
-
-		#endregion
+    public int CompareTo(Account? other)
+    {
+        if (other == null) return 1;
+        return Balance.CompareTo(other.Balance);
+    }
 
 
+    public void Transfer(Account a1, decimal amount)
+    {
+        if (Balance < amount) throw new WrongAmountException($"You don't have enough balance to transfer {amount:C}");
 
-		public Account(BankCustomer owner, string password) //contructor if owner doesn't give any money in deposite
-		{
-			this.owner = owner;
-			Password = password;
-			Balance = 0;
-			AccountNumber = bankAccountNumber;
-			bankAccountNumber++;
-		}
+        a1.Balance += amount;
+        Balance -= amount;
+    }
 
-		public Account(BankCustomer owner, string password, decimal balance) // contrutor if owner deposit money
-		{
-			this.owner = owner;
-			Password = password;
-			this.Balance = balance;
-			AccountNumber = bankAccountNumber;
-			bankAccountNumber++;
-		}
+    public void Donate(decimal amount)
+    {
+        Balance += amount;
+        Console.WriteLine($"You donated {amount:C} and now your balance is: {Balance:C}");
+    }
 
-
-
-
+    public void Withdraw(decimal amount)
+    {
+        if (Balance < amount) throw new WrongAmountException($"You don't have enough balance to withdraw {amount:C}");
+        Balance -= amount;
+        Console.WriteLine($"You withdrawed {amount:C} and now your balance is: {Balance:C}");
+    }
 
 
+    public override string ToString()
+    {
+        return $"{Owner}, Balance: {Balance:C}, Bank Account Number: {AccountNumber:D19}";
+    }
 
+    #region
 
+    private static long bankAccountNumber;
+    
+    static Account()
+    {
+        bankAccountNumber = 0000000000000000001;
+    }
 
+    #endregion
 
+    #region Properties
 
+    public string
+        Password // password must have at least: 1 capital letter, 1 digit, 1 special character and must be at least 6 characters long    
+    {
+        get => password;
+        init
+        {
+            if (!Regex.IsMatch(value, @"^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$"))
+                throw new WrongPasswordException(
+                    "Password must have at least 1 capital letter, 1 digit, and be at least 6 characters long (no special characters).");
+            password = value;
+        }
+    }
 
-		public void Transfer(Account a1, decimal amount)
-		{
-			if (Balance < amount)
-			{
-				throw new WrongAmountException($"You don't have enough balance to transef {amount:C}");
-			}
+    public long AccountNumber { get; init; }
 
-			a1.Balance += amount;
-			Balance -= amount;
-		}
+    public decimal Balance { get; set; }
 
-		public void Donate(decimal amount)
-		{
-			balance +=amount;
-			Console.WriteLine($"You donated {amount:C} and now your balance is: {balance:C}");
-		}
-		public void Withdraw(decimal amount)
-		{
-			if (Balance < amount)
-			{
-				throw new WrongAmountException($"You don't have enough balance to withdraw {amount:C}");
-			}
-			balance -= amount;
-			Console.WriteLine($"You withdrawed {amount:C} and now your balance is: {balance:C}");
-		}
+    public BankCustomer Owner { get; set; }
 
-
-		public override string ToString()
-		{
-			return $"{owner}, Balance: {Balance:C}, Bank Account Number: {AccountNumber:D19}";
-		}
-
-		public int CompareTo(Account? other)
-		{
-			if (other == null) return 1;
-			else return Balance.CompareTo(other.Balance);
-		}
-
-
-
-	}
+    #endregion
 }

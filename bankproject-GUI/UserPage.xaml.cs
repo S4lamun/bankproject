@@ -31,7 +31,7 @@ namespace bankproject_GUI
             this.mainWindow = mainWindow;
             this.user = mainWindow.LoggedInUser;
             this.bank = bank;
-            NameBox.Text = $"{user.Owner.name} {user.Owner.surrname}";
+            NameBox.Text = $"{user.Owner.name} {user.Owner.surname}";
             BalanceBox.Text = $"{user.Balance:C}";
         }
 
