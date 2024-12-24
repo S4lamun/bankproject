@@ -32,8 +32,8 @@ namespace bankproject_GUI
         }
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-            Bank.CreateBank();
-            Bank b1 = Bank.ReadXml("MyBank.xml");
+            Bank b1 = new("MyBank");
+            b1.ReadXml("../../../../MyBank.xml");
             string password = PasswordBox.Password;
             
             if(b1.FindEmployee(password) is not null)

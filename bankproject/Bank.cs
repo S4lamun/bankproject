@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Principal;
+using System.Text;
 using System.Xml.Serialization;
 
 namespace bankproject;
@@ -56,11 +57,22 @@ public class Bank : IBank //it's for admin
         xs.Serialize(sr, this);
     }
 
-    public static Bank ReadXml(string fileName)
+    public Bank ReadXml(string fileName)
     {
         using StreamReader sr = new(fileName);
         XmlSerializer xs = new(typeof(Bank));
-        return xs.Deserialize(sr) as Bank;
+        Bank myBank = (Bank)xs.Deserialize(sr);
+        foreach (var employee in myBank.employeesForXML)
+        {
+            bankEmployees.Add(employee.EmployeeID, employee);
+            employeesForXML.Add(employee);
+        }
+        foreach (var account in  myBank.accountsForXML)
+        {
+            accounts.Add(account.AccountNumber, account);
+            accountsForXML.Add(account);
+        }
+        return myBank;
     }
 
 

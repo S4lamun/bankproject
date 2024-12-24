@@ -21,8 +21,7 @@ public class BankEmployee : Person
         init
         {
             if (!Regex.IsMatch(value, @"^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$"))
-                throw new WrongPasswordException(
-                    "Password must have at least 1 capital letter, 1 digit, and be at least 6 characters long (no special characters).");
+                throw new WrongPasswordException("Password must have at least 1 capital letter, 1 digit, and be at least 6 characters long (no special characters).");
             employeePassword = value;
         }
     }
