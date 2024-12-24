@@ -36,9 +36,10 @@ namespace bankproject_GUI
             Bank b1 = Bank.ReadXml("MyBank.xml");
             string password = PasswordBox.Password;
             
-            if(b1.FindEmpolyee(password))
+            if(b1.FindEmployee(password) is not null)
             {
-                mainWindow.MainFrame.Navigate(new AdminPage());
+                mainWindow.MainFrame.Navigate(new AdminPage(mainWindow, b1));
+                mainWindow.LoggedInBankEmployee = b1.FindEmployee(password);
             }
             else if(b1.FindAccount(password) is not null)
             {

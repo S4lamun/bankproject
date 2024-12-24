@@ -19,6 +19,7 @@ namespace bankproject_GUI
 	public partial class MainWindow : Window
 	{
 		public Account? LoggedInUser { get; set; }
+		public BankEmployee? LoggedInBankEmployee { get; set; }
 		public MainWindow()
 		{
 			InitializeComponent();

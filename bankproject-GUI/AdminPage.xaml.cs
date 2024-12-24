@@ -23,11 +23,17 @@ namespace bankproject_GUI
     /// </summary>
     public partial class AdminPage : Page
     {
-        public AdminPage()
+        BankEmployee employee;
+        MainWindow mainWindow;
+        private Bank bank;
+        public AdminPage(MainWindow mainWindow, Bank bank)
         {
             InitializeComponent();
-            
-           
+            this.mainWindow = mainWindow;
+            this.employee = mainWindow.LoggedInBankEmployee;
+            this.bank = bank;
+
+
         }
     }
 }
