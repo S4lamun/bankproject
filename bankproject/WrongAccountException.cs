@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace bankproject;
 
-namespace bankproject
+public class WrongAccountException : Exception
 {
-    public class WrongAccountException:Exception
+    private string message;
+
+    public WrongAccountException(string message)
     {
-        string message;
-        public WrongAccountException(string message)
-        {
-            this.message = message;
-        }
+        this.message = message;
     }
 }

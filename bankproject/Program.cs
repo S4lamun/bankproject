@@ -1,17 +1,9 @@
-﻿using bankproject;
-using System;
-using System.Runtime.Intrinsics.X86;
+﻿namespace bankproject;
 
-namespace bankproject
+internal class Program
 {
-    class Program
+    private static void Main()
     {
-
-        
-        static void Main()
-        {
-            Bank.CreateBank();
-            
-        }
+        Bank.CreateBank();
     }
 }
