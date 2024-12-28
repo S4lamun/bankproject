@@ -1,7 +1,7 @@
 ﻿using System.Security.Principal;
 using System.Text;
 using System.Xml.Serialization;
-
+using MySql.Data.MySqlClient;
 namespace bankproject;
 
 [XmlInclude(typeof(Account))]
@@ -81,6 +81,77 @@ public class Bank : IBank //it's for admin
         return myBank;
     }
 
+    public void saveToDatabase(string connectionString)
+    {
+        using MySqlConnection conn = new(connectionString);
+        conn.Open();
+
+        
+        string createAccountsTableQuery = @"
+    CREATE TABLE IF NOT EXISTS Accounts (
+        AccountId INT PRIMARY KEY,
+        OwnerName VARCHAR(255),
+        Pesel VARCHAR(11),
+        Balance DECIMAL(18,2),
+        Password VARCHAR(255)
+    );";
+
+        using (MySqlCommand createAccountsTableCommand = new(createAccountsTableQuery, conn))
+        {
+            createAccountsTableCommand.ExecuteNonQuery();
+        }
+
+        
+        string createEmployeesTableQuery = @"
+    CREATE TABLE IF NOT EXISTS Employees (
+        EmployeeID INT PRIMARY KEY,
+        Name VARCHAR(255),
+        Surname VARCHAR(255),
+        Pesel VARCHAR(11),
+        Sex VARCHAR(10),
+        Password VARCHAR(255)
+    );";
+
+        using (MySqlCommand createEmployeesTableCommand = new(createEmployeesTableQuery, conn))
+        {
+            createEmployeesTableCommand.ExecuteNonQuery();
+        }
+
+        
+        foreach (var account in accountsForXML)
+        {
+            string accountQuery = @"INSERT INTO Accounts (AccountId, OwnerName, Pesel, Balance, Password)
+                            VALUES (@AccountId, @OwnerName, @Pesel, @Balance, @Password)";
+
+            using MySqlCommand accountCommand = new(accountQuery, conn);
+            accountCommand.Parameters.AddWithValue("@AccountId", account.AccountNumber);
+            accountCommand.Parameters.AddWithValue("@OwnerName", account.Owner.name);
+            accountCommand.Parameters.AddWithValue("@Pesel", account.Owner.Pesel);
+            accountCommand.Parameters.AddWithValue("@Balance", account.Balance);
+            accountCommand.Parameters.AddWithValue("@Password", account.Password);
+
+            accountCommand.ExecuteNonQuery();
+        }
+
+        
+        foreach (var employee in employeesForXML)
+        {
+            string employeeQuery = @"INSERT INTO Employees (EmployeeID, Name, Surname, Pesel, Sex, Password)
+                             VALUES (@EmployeeID, @Name, @Surname, @Pesel, @Sex, @Password)";
+
+            using MySqlCommand employeeCommand = new(employeeQuery, conn);
+            employeeCommand.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
+            employeeCommand.Parameters.AddWithValue("@Name", employee.name);
+            employeeCommand.Parameters.AddWithValue("@Surname", employee.surname);
+            employeeCommand.Parameters.AddWithValue("@Pesel", employee.Pesel);
+            employeeCommand.Parameters.AddWithValue("@Sex", employee.sex.ToString());
+            employeeCommand.Parameters.AddWithValue("@Password", employee.EmployeePassword);
+
+            employeeCommand.ExecuteNonQuery();
+        }
+    }
+
+
     public void Sort()
     {
         accountsForXML.Sort();
@@ -127,6 +198,9 @@ public class Bank : IBank //it's for admin
         
 
         b1.SaveXml("MyBank.xml");
+
+        string connectionString = "Server=localhost;Database=mybank;User Id=root;Password=aleksanderj;";
+        b1.saveToDatabase(connectionString);
     }
 
   
