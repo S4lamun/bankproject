@@ -11,8 +11,8 @@ public class Account : IComparable<Account>
         this.Owner = owner;
         Password = password;
         Balance = balance;
-        AccountNumber = bankAccountNumber;
-        bankAccountNumber++;
+        AccountNumber = BankAccountNumber;
+        BankAccountNumber++;
     }
 
     public int CompareTo(Account? other)
@@ -24,7 +24,7 @@ public class Account : IComparable<Account>
 
     public void Transfer(Account a1, decimal amount)
     {
-        if (Balance < amount) throw new WrongAmountException($"You don't have enough balance to transfer {amount:C}");
+        if (Balance < amount || amount <0) throw new WrongAmountException($"You don't have enough balance to transfer {amount:C}");
 
         a1.Balance += amount;
         Balance -= amount;
@@ -38,7 +38,7 @@ public class Account : IComparable<Account>
 
     public void Withdraw(decimal amount)
     {
-        if (Balance < amount) throw new WrongAmountException($"You don't have enough balance to withdraw {amount:C}");
+        if (Balance < amount || amount <0) throw new WrongAmountException($"You don't have enough balance to withdraw {amount:C}");
         Balance -= amount;
         Console.WriteLine($"You withdrawed {amount:C} and now your balance is: {Balance:C}");
     }
@@ -55,7 +55,7 @@ public class Account : IComparable<Account>
     
     static Account()
     {
-        bankAccountNumber = 0000000000000000001;
+        BankAccountNumber = 0000000000000000001;
     }
 
     #endregion
@@ -80,6 +80,7 @@ public class Account : IComparable<Account>
     public decimal Balance { get; set; }
 
     public BankCustomer Owner { get; set; }
+    public static long BankAccountNumber { get => bankAccountNumber; set => bankAccountNumber = value; }
 
     #endregion
 }

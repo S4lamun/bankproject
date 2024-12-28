@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,9 +31,73 @@ namespace bankproject_GUI
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-            this.employee = mainWindow.LoggedInBankEmployee;
+            employee = mainWindow.LoggedInBankEmployee;
             this.bank = bank;
+            AccountList.ItemsSource = new ObservableCollection<Account>(bank.accountsForXML);
+            BankName.Text = bank.name;
 
+        }
+
+        private void LogoutButton_Click(Object sender, RoutedEventArgs e)
+        {
+            mainWindow.MainFrame.Navigate(new LoginPage(mainWindow));
+            bank.SaveXml("../../../../MyBank.xml");
+
+        }
+
+        private void SortButton_Click(Object sender, RoutedEventArgs e) // sth not working
+        {
+            bank.Sort();
+            AccountList.ItemsSource = new ObservableCollection<Account>(bank.accountsForXML);
+
+        }
+
+        private void AddAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddAccountWindow addAccountWindow = new AddAccountWindow(bank);
+            addAccountWindow.ShowDialog();
+
+            if (addAccountWindow.AccountAdded)
+            {
+                AccountList.ItemsSource = new ObservableCollection<Account>(bank.accountsForXML);
+            }
+        }
+
+        private void RemoveAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            RemoveAccountWindow removeAccountWindow = new RemoveAccountWindow(bank);
+            removeAccountWindow.ShowDialog();
+
+            
+            AccountList.ItemsSource = new ObservableCollection<Account>(bank.accountsForXML);
+        }
+
+        private void AddNewEmployeeButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddBankEmployeeWindow addBankEmployeeWindow = new AddBankEmployeeWindow();
+            if (addBankEmployeeWindow.ShowDialog() == true) // Otwórz okno i czekaj na zatwierdzenie
+            {
+                if (addBankEmployeeWindow.NewEmployee != null)
+                {
+                    try
+                    {
+                        bank.AddEmployee(addBankEmployeeWindow.NewEmployee);
+                        MessageBox.Show("Bank employee added successfully!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error adding employee: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        private void RemoveEmployeeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Otwieramy okno, w którym użytkownik wpisuje EmployeeID i hasło
+            RemoveEmployeeWindow removeEmployeeWindow = new RemoveEmployeeWindow(bank);
+            removeEmployeeWindow.ShowDialog();
 
         }
     }

@@ -1,0 +1,23 @@
+﻿<Window x:Class="bankproject_GUI.RemoveEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Remove Employee" Height="200" Width="400">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+        <TextBlock Text="Enter Employee ID and Password" Margin="0,10,0,10" FontWeight="Bold"/>
+
+        <!-- Employee ID TextBox with watermark -->
+        <Grid>
+            <TextBox x:Name="EmployeeIDTextBox" Margin="0,5"/>
+            <TextBlock Text="Employee ID" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+        </Grid>
+
+        <!-- Password Box with watermark -->
+        <Grid>
+            <PasswordBox x:Name="PasswordBox" Margin="0,5"/>
+            <TextBlock Text="Password" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+        </Grid>
+
+        <Button Content="Remove Employee" Click="RemoveEmployeeButton_Click" Margin="0,10"/>
+    </StackPanel>
+</Window>
+

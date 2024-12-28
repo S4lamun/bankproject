@@ -9,6 +9,17 @@
       Title="AdminPage">
 
     <Grid Background="Chocolate">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="AccountList" HorizontalAlignment="Left" Height="172" Margin="154,224,0,0" VerticalAlignment="Top" Width="472" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name="LogoutButton" Content="Logout and save" HorizontalAlignment="Left" Height="53" Margin="683,343,0,0" VerticalAlignment="Top" Width="107" Click="LogoutButton_Click"/>
+        <Button x:Name="SortButton" Content="Sort" HorizontalAlignment="Left" Height="53" Margin="48,343,0,0" VerticalAlignment="Top" Width="78" Click="SortButton_Click"/>
+        <TextBlock x:Name="BankName" HorizontalAlignment="Left" Height="54" Margin="490,10,0,0" TextWrapping="Wrap" Text="Bank Name" VerticalAlignment="Top" Width="264"/>
+        <Button x:Name="AddAccoutButton" Content="Add account" Height="46" Margin="48,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="78" RenderTransformOrigin="0.5,0.5" Click ="AddAccountButton_Click"></Button>
+        <Button x:Name="RemoveAccountButton" Content="Remove account" HorizontalAlignment="Left" Height="37" Margin="48,273,0,0" VerticalAlignment="Top" Width="101" Click ="RemoveAccountButton_Click"/>
+        <Button x:Name="AddNewEmployeeButton" Content="Add New Employee" HorizontalAlignment="Left" Height="47" Margin="154,152,0,0" VerticalAlignment="Top" Width="122" Click="AddNewEmployeeButton_Click"/>
+        <Button x:Name="RemoveEmployeeButton" Content="Remove Employee" HorizontalAlignment="Left" Height="47" Margin="335,152,0,0" VerticalAlignment="Top" Width="153" Click="RemoveEmployeeButton_Click"/>
+
     </Grid>
 </Page>

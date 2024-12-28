@@ -6,6 +6,8 @@ namespace bankproject;
 public class BankEmployee : Person
 {
     private readonly string employeePassword;
+    static long employeeID;
+
 
     public BankEmployee() { }
     public BankEmployee(string name, string surname, string pesel, EnumSex sex, long employeeID,

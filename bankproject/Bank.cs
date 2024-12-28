@@ -72,9 +72,19 @@ public class Bank : IBank //it's for admin
             accounts.Add(account.AccountNumber, account);
             accountsForXML.Add(account);
         }
+
+        if (accounts.Count > 0)
+        {
+            Account.BankAccountNumber = accounts.Keys.Max() + 1;
+        }
+
         return myBank;
     }
 
+    public void Sort()
+    {
+        accountsForXML.Sort();
+    }
 
     public override string ToString()
     {
@@ -206,6 +216,23 @@ public class Bank : IBank //it's for admin
             accountsForXML.Remove(account);
         }
         else Console.WriteLine($"There is not account which this Account Number! {account.AccountNumber}");
+    }
+
+    public void RemoveAccountByPeselAndPassword(string pesel, string password)
+    {
+        // Szukamy konta na podstawie PESEL i hasła
+        var accountToRemove = accounts.Values
+            .FirstOrDefault(a => a.Owner.Pesel == pesel && a.Password == password);
+
+        if (accountToRemove != null)
+        {
+            // Usuwamy konto
+            RemoveAccount(accountToRemove);
+        }
+        else
+        {
+            throw new Exception("Account with the provided PESEL and password not found.");
+        }
     }
 
 

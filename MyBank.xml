@@ -4,7 +4,7 @@
     <Account>
       <Password>HASELKO1</Password>
       <AccountNumber>1</AccountNumber>
-      <Balance>8</Balance>
+      <Balance>18</Balance>
       <Owner>
         <name>Marian</name>
         <sex>M</sex>
@@ -15,7 +15,7 @@
     <Account>
       <Password>HASELKO2</Password>
       <AccountNumber>2</AccountNumber>
-      <Balance>500</Balance>
+      <Balance>507</Balance>
       <Owner>
         <name>Maja</name>
         <sex>K</sex>
@@ -43,14 +43,6 @@
       <Pesel>11111111111</Pesel>
       <EmployeePassword>HasloPracownika1</EmployeePassword>
       <EmployeeID>1</EmployeeID>
-    </BankEmployee>
-    <BankEmployee>
-      <name>Adam</name>
-      <sex>M</sex>
-      <surname>Kowalski</surname>
-      <Pesel>22222222222</Pesel>
-      <EmployeePassword>HasloPracownika2</EmployeePassword>
-      <EmployeeID>2</EmployeeID>
     </BankEmployee>
   </employeesForXML>
   <name>MyBank</name>

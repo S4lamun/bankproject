@@ -1,0 +1,34 @@
+﻿<Window x:Class="bankproject_GUI.AddAccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Account" Height="450" Width="400">
+    <StackPanel Orientation="Vertical" Margin="10">
+        <TextBlock Text="Add New Account with New Customer" FontWeight="Bold" Margin="0,10,0,5" FontSize="16"/>
+
+        <!-- Dane właściciela konta -->
+        <TextBlock Text="Customer's First Name:" Margin="0,5"/>
+        <TextBox x:Name="FirstNameTextBox" Margin="0,5"/>
+
+        <TextBlock Text="Customer's Last Name:" Margin="0,5"/>
+        <TextBox x:Name="LastNameTextBox" Margin="0,5"/>
+
+        <TextBlock Text="Customer's PESEL:" Margin="0,5"/>
+        <TextBox x:Name="PeselTextBox" Margin="0,5"/>
+
+        <TextBlock Text="Customer's Sex:" Margin="0,5"/>
+        <ComboBox x:Name="SexComboBox" Margin="0,5">
+            <ComboBoxItem Content="Male" Tag="M"/>
+            <ComboBoxItem Content="Female" Tag="K"/>
+        </ComboBox>
+
+        <!-- Dane konta -->
+        <TextBlock Text="Account Password:" Margin="0,5"/>
+        <PasswordBox x:Name="PasswordBox" Margin="0,5"/>
+
+        <TextBlock Text="Initial Balance:" Margin="0,5"/>
+        <TextBox x:Name="BalanceTextBox" Margin="0,5"/>
+
+        <!-- Przycisk dodania konta -->
+        <Button Content="Add Account" Click="AddAccountButton_Click" Margin="0,10"/>
+    </StackPanel>
+</Window>
