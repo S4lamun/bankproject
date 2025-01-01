@@ -9,6 +9,7 @@ public abstract class Person
     public EnumSex sex;
     public string surname;
     
+
     public Person() { }
     public Person(string name, string surname, string pesel, EnumSex sex)
     {
@@ -25,11 +26,12 @@ public abstract class Person
         get => pesel;
         set
         {
-            if (!Regex.IsMatch(value, @"\d{11}")) throw new WrongPeselException("Pesel is invalid");
+            if (!Regex.IsMatch(value, @"^\d{11}$")) throw new WrongPeselException("Pesel is invalid");
             pesel = value;
         }
     }
 
+   
     #endregion
 
     public override string ToString()

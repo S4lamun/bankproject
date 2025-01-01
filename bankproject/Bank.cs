@@ -59,6 +59,7 @@ public class Bank : IBank //it's for admin
 
     public Bank ReadXml(string fileName)
     {
+        if(!File.Exists(fileName)) { throw new Exception("File doesnt exist!"); }
         using StreamReader sr = new(fileName);
         XmlSerializer xs = new(typeof(Bank));
         Bank myBank = (Bank)xs.Deserialize(sr);
@@ -86,7 +87,7 @@ public class Bank : IBank //it's for admin
         using MySqlConnection conn = new(connectionString);
         conn.Open();
 
-        
+        #region creating accounts table
         string createAccountsTableQuery = @"
     CREATE TABLE IF NOT EXISTS Accounts (
         AccountId INT PRIMARY KEY,
@@ -95,13 +96,13 @@ public class Bank : IBank //it's for admin
         Balance DECIMAL(18,2),
         Password VARCHAR(255)
     );";
-
         using (MySqlCommand createAccountsTableCommand = new(createAccountsTableQuery, conn))
         {
             createAccountsTableCommand.ExecuteNonQuery();
         }
+        #endregion
 
-        
+        #region creating employees table in mysql
         string createEmployeesTableQuery = @"
     CREATE TABLE IF NOT EXISTS Employees (
         EmployeeID INT PRIMARY KEY,
@@ -117,7 +118,7 @@ public class Bank : IBank //it's for admin
             createEmployeesTableCommand.ExecuteNonQuery();
         }
 
-        
+        #endregion
         foreach (var account in accountsForXML)
         {
             string accountQuery = @"INSERT INTO Accounts (AccountId, OwnerName, Pesel, Balance, Password)
