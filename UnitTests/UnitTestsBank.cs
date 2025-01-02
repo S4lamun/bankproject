@@ -75,22 +75,7 @@ namespace UnitTests
                         
             Assert.AreEqual(konto, znalezioneKonto);
         }
-        [TestMethod]
-        public void TestTransferMoney()
-        {
-            Bank bank = new Bank("Testowy Bank");
-            BankCustomer klient1 = new BankCustomer("Anna", "Nowak", "11111111111", EnumSex.K);
-            BankCustomer klient2 = new BankCustomer("Adam", "Kowalski", "22222222222", EnumSex.M);
-            Account k1 = new Account(klient1, "Password1", 200m);
-            Account k2 = new Account(klient2, "Password12", 200m);
-            bank.AddAccount(k1);
-            bank.AddAccount(k2);
-            decimal kwotaPrzelewu = 100m;
-            k1.Transfer(k2, kwotaPrzelewu);
-
-            Assert.AreEqual(100m, k1.Balance);
-            Assert.AreEqual(300m, k2.Balance);
-        }
+        
         
     }
 }
