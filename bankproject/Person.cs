@@ -1,8 +1,9 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics.Eventing.Reader;
+using System.Text.RegularExpressions;
 
 namespace bankproject;
 
-public abstract class Person
+public abstract class Person:IEquatable<Person>
 {
     public string name;
     private string pesel;
@@ -18,6 +19,8 @@ public abstract class Person
         Pesel = pesel;
         this.sex = sex;
     }
+
+    
 
     #region Properties
 
@@ -38,6 +41,14 @@ public abstract class Person
     {
         return $"{name} {surname} [{sex}], PESEL: {Pesel}";
     }
+
+    public bool Equals(Person other)
+    {
+        if (other == null) return false;
+        return Pesel.Equals(other.Pesel);
+    }
+
+
 }
 
 public enum EnumSex
