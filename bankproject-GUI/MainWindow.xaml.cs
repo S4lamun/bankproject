@@ -20,12 +20,15 @@ namespace bankproject_GUI
 	{
 		public Account? LoggedInUser { get; set; }
 		public BankEmployee? LoggedInBankEmployee { get; set; }
-		public MainWindow()
-		{
-			InitializeComponent();
-			MainFrame.Navigate(new LoginPage(this));
-			
+        public MainWindow()
+        {
+            InitializeComponent();
+            MainFrame.Navigate(new MainPage(this));
 
-		}
-	}
+
+        }
+
+
+
+    }
 }

@@ -5,13 +5,61 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:bankproject_GUI"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="LoginPage">
+      d:DesignHeight="297"
+      Title="LoginPage" Width="504">
 
-    <Grid Background="LightBlue">
-        <TextBlock x:Name="LogInText" HorizontalAlignment="Left" Height="86" Margin="121,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="473"><Run Language="pl-pl" Text="Log in"/></TextBlock>
-        <Button x:Name="LogInButton" Content="LOG IN" HorizontalAlignment="Left" Height="60" Margin="566,336,0,0" VerticalAlignment="Top" Width="167" Click="LogInButton_Click"/>
-        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="49" Margin="206,106,0,0"  VerticalAlignment="Top" Width="239" />
-        <TextBlock x:Name="PasswordText" HorizontalAlignment="Left" Height="49" Margin="51,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="pl-pl" Text="Password:"/></TextBlock>
+    <Grid Background="White" Width="500" Height="297" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+        <StackPanel Width="400" Margin="17,59,70,149" Background="#8AAAE5"/>
+
+        <TextBlock x:Name="LogInText" HorizontalAlignment="Left" Height="86" Margin="51,59,0,0"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Width="410" FontWeight="Bold">
+            <Run Language="pl-pl" Text="Log in"/>
+        </TextBlock>
+
+        <Button x:Name="LogInButton" Content="LOG IN" HorizontalAlignment="Left" Height="60"
+                Margin="140,185,0,0" VerticalAlignment="Top" Width="167"
+                Click="LogInButton_Click" Background="#FF8AAAE5" FontWeight="Bold">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FF8AAAE5"/>
+
+                    <Setter Property="Foreground" Value="Black"/>
+
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Width" Value="206"/>
+                    <Setter Property="Height" Value="30"/>
+
+                    <Style.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF5C6C92"/>
+
+                            <Setter Property="Cursor" Value="Hand"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+        </Button>
+
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="49"
+                     Margin="121,96,0,0" VerticalAlignment="Top" Width="239"
+                     Background="{x:Null}" />
+
+        <TextBlock x:Name="PasswordText" HorizontalAlignment="Left" Height="49"
+                   Margin="51,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
+                   Width="120" FontWeight="Bold">
+            <Run x:Name="run" Language="pl-pl" Text="Password:"/>
+        </TextBlock>
+
+        <Image HorizontalAlignment="Left" Height="30" Margin="22,100,0,0"
+               VerticalAlignment="Top" Width="43" Source="/password-148.png"/>
+
+        <Image HorizontalAlignment="Left" Height="50" Margin="24,21,0,0"
+               VerticalAlignment="Top" Width="32" Source="/8176383.png"
+               RenderTransformOrigin="0.809,0.517"/>
+        <TextBox x:Name="BankNameBox"  HorizontalAlignment="Left"  Height="30" Margin="56,0,0,245" TextWrapping="Wrap" Text="BankName" VerticalAlignment="Bottom" Width="187" FontSize="21" FontWeight="Bold"/>
     </Grid>
 </Page>

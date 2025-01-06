@@ -8,11 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserPage">
 
-    <Grid Background="DarkCyan">
-        
+    <Grid Background="White">
+
         <Frame x:Name="UserFrame" NavigationUIVisibility="Hidden"></Frame>
-        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="35" Margin="47,41,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
-        <TextBox x:Name="BalanceBox" HorizontalAlignment="Left" Height="35" Margin="462,41,0,0" TextWrapping="Wrap" Text="BalanceBox" VerticalAlignment="Top" Width="203" IsReadOnly="True"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="35" Margin="567,30,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
+        <TextBox x:Name="BalanceBox" HorizontalAlignment="Left" Height="35" Margin="567,70,0,0" TextWrapping="Wrap" Text="BalanceBox" VerticalAlignment="Top" Width="203" IsReadOnly="True"/>
         <Button x:Name="WithdrawButton" Content="Withdraw" HorizontalAlignment="Left" Height="50" Margin="47,148,0,0" VerticalAlignment="Top" Width="100" Click="WithdrawButton_Click"/>
         <Button x:Name="DonateButton" Content="Donate" HorizontalAlignment="Left" Height="50" Margin="47,225,0,0" VerticalAlignment="Top" Width="100" Click="DonateButton_Click"/>
         <Button x:Name="TransferButton" Content="Transfer" HorizontalAlignment="Left" Height="50" Margin="47,320,0,0" VerticalAlignment="Top" Width="100" Click="TransferButton_Click"/>

@@ -34,17 +34,21 @@ namespace bankproject_GUI
             employee = mainWindow.LoggedInBankEmployee;
             this.bank = bank;
             AccountList.ItemsSource = new ObservableCollection<Account>(bank.accountsForXML);
-            BankName.Text = bank.name;
-
+            //BankName.Text = bank.name;
+            BankNameBox.Text = bank.name;
         }
 
         private void LogoutButton_Click(Object sender, RoutedEventArgs e)
         {
-            mainWindow.MainFrame.Navigate(new LoginPage(mainWindow));
+            mainWindow.MainFrame.Navigate(new LoginPage(mainWindow,bank));
             bank.SaveXml("../../../../MyBank.xml");
 
         }
-
+        private void ChangeBankNameButton_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeBankNameWindow changeBankNameWindow = new ChangeBankNameWindow(bank);
+            changeBankNameWindow.ShowDialog();
+        }
         private void SortButton_Click(Object sender, RoutedEventArgs e) // sth not working
         {
             bank.Sort();

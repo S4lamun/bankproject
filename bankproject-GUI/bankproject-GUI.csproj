@@ -10,7 +10,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="8176383.png" />
+    <None Remove="password-148.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\bankproject\bankproject.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="8176383.png" />
+    <Resource Include="password-148.png" />
   </ItemGroup>
 
  

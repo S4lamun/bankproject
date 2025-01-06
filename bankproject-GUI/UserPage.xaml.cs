@@ -74,7 +74,7 @@ namespace bankproject_GUI
         
         private void LogoutButton_Click(Object sender, RoutedEventArgs e)
         {
-            mainWindow.MainFrame.Navigate( new LoginPage(mainWindow));
+            mainWindow.MainFrame.Navigate( new LoginPage(mainWindow, bank));
             bank.SaveXml("../../../../MyBank.xml"); 
 
         }

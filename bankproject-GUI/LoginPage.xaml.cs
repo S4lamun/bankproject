@@ -24,15 +24,18 @@ namespace bankproject_GUI
     public partial class LoginPage : Page
     {
         private MainWindow mainWindow;
-        public LoginPage(MainWindow mainWindow)
+        private Bank b1;
+        public LoginPage(MainWindow mainWindow, Bank bank)
         {
             InitializeComponent();
+            this.b1 = bank;
             this.mainWindow = mainWindow;
-            
+            BankNameBox.Text = b1.name;
+
         }
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-            Bank b1 = new("MyBank");
+            
             b1.ReadXml("../../../../MyBank.xml");
             string password = PasswordBox.Password;
             

@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Add Account" Height="450" Width="400">
     <StackPanel Orientation="Vertical" Margin="10">
-        <TextBlock Text="Add New Account with New Customer" FontWeight="Bold" Margin="0,10,0,5" FontSize="16"/>
+        <TextBlock Text="Add New Account with New Customer" TextAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10,0,5" FontSize="16" Background="#FF8AAAE5" Width="357"/>
 
-        <!-- Dane właściciela konta -->
+
         <TextBlock Text="Customer's First Name:" Margin="0,5"/>
         <TextBox x:Name="FirstNameTextBox" Margin="0,5"/>
 
@@ -17,18 +17,23 @@
 
         <TextBlock Text="Customer's Sex:" Margin="0,5"/>
         <ComboBox x:Name="SexComboBox" Margin="0,5">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FF8AAAE5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
             <ComboBoxItem Content="Male" Tag="M"/>
             <ComboBoxItem Content="Female" Tag="K"/>
         </ComboBox>
 
-        <!-- Dane konta -->
+
         <TextBlock Text="Account Password:" Margin="0,5"/>
         <PasswordBox x:Name="PasswordBox" Margin="0,5"/>
 
         <TextBlock Text="Initial Balance:" Margin="0,5"/>
         <TextBox x:Name="BalanceTextBox" Margin="0,5"/>
 
-        <!-- Przycisk dodania konta -->
-        <Button Content="Add Account" Click="AddAccountButton_Click" Margin="0,10"/>
+        <Button Content="Add Account" Click="AddAccountButton_Click" Margin="0,10" Background="#FF8AAAE5"/>
     </StackPanel>
 </Window>
