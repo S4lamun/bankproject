@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bankproject_GUI"
         mc:Ignorable="d"
-        Title="ChangeBankNameWindow" Height="168" Width="513">
+        Title="ChangeBankNameWindow" Height="229" Width="515">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="54" Margin="30,22,0,0" TextWrapping="Wrap" FontWeight="Bold"  Text="Set new bank name:" VerticalAlignment="Top" Width="379" FontSize="21"/>
-        <TextBlock x:Name="SetNewBankName" TextWrapping="Wrap" Text="TextBlock" Margin="30,81,104,39"/>
-        <Button x:Name="SaveButton" Content="SAVE" HorizontalAlignment="Left" Height="30"
-        Margin="194,113,0,0" VerticalAlignment="Top" Width="108"
+        <TextBlock HorizontalAlignment="Left" Height="54" Margin="30,22,0,0" TextWrapping="Wrap" FontWeight="Bold"  Text="Set new bank name:" VerticalAlignment="Top" Width="379" FontSize="21"/>
+        <TextBox x:Name="SetNewBankName" TextWrapping="Wrap" Text=" " Margin="30,81,114,87"/>
+        <Button x:Name="SaveButton" Content="SAVE" HorizontalAlignment="Center" Height="30"
+        Margin="0,163,0,0" VerticalAlignment="Top" Width="108"
         Click="SaveButton_Click" Background="#FF8AAAE5" FontWeight="Bold">
             <Button.Style>
                 <Style TargetType="Button">

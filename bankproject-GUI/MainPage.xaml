@@ -10,7 +10,7 @@
 
 
 
-        <TextBox x:Name="BankNameBox"  HorizontalAlignment="Left"  Height="37" Margin="314,0,0,346" TextWrapping="Wrap" Text="BankName" VerticalAlignment="Bottom" Width="197" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="BankNameBox"  HorizontalAlignment="Left"  Height="37" Margin="314,0,0,346" TextWrapping="Wrap" Text="BankName" VerticalAlignment="Bottom" Width="197" FontSize="24" FontWeight="Bold"/>
 
         <Button Content="Login" FontWeight="Bold" Height="30" 
              HorizontalAlignment="Center" VerticalAlignment="Top" 
