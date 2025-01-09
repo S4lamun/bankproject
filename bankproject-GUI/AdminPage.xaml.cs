@@ -44,11 +44,7 @@ namespace bankproject_GUI
             bank.SaveXml("../../../../MyBank.xml");
 
         }
-        private void ChangeBankNameButton_Click(object sender, RoutedEventArgs e)
-        {
-            ChangeBankNameWindow changeBankNameWindow = new ChangeBankNameWindow(bank);
-            changeBankNameWindow.ShowDialog();
-        }
+       
         private void SortButton_Click(Object sender, RoutedEventArgs e) // sth not working
         {
             bank.Sort();

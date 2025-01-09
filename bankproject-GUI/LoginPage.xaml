@@ -60,7 +60,7 @@
         <TextBox x:Name="BankNameBox"  HorizontalAlignment="Left"  Height="30" Margin="56,0,0,245" TextWrapping="Wrap" Text="BankName" VerticalAlignment="Bottom" Width="187" FontSize="21" FontWeight="Bold"/>
 
         <MediaElement x:Name="LoadingGif"
-              Source="file:///C:/Users/ajasi/source/repos/bankproject/bankproject-GUI/loading.gif"
+              Source="/loading.gif"
               Width="74" Height="54"
               HorizontalAlignment="Left"
               VerticalAlignment="Top"

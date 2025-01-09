@@ -43,7 +43,6 @@
         <Button x:Name="RemoveAccountButton" FontWeight="Bold"  Background="#FF8AAAE5"  Content="Remove account" HorizontalAlignment="Left" Height="37" Margin="48,273,0,0" VerticalAlignment="Top" Width="101" Click ="RemoveAccountButton_Click"/>
         <Button x:Name="AddNewEmployeeButton"  FontWeight="Bold"  Background="#FF8AAAE5" Content="Add New Employee" HorizontalAlignment="Left" Height="47" Margin="154,152,0,0" VerticalAlignment="Top" Width="122" Click="AddNewEmployeeButton_Click"/>
         <Button x:Name="RemoveEmployeeButton" FontWeight="Bold"  Background="#FF8AAAE5"  Content="Remove Employee" HorizontalAlignment="Left" Height="47" Margin="335,152,0,0" VerticalAlignment="Top" Width="153" Click="RemoveEmployeeButton_Click"/>
-        <Button x:Name="BankNameButton" FontWeight="Bold"  Background="#FF8AAAE5"  Content="Change Bank's name" HorizontalAlignment="Left" Height="47" Margin="545,152,0,0" VerticalAlignment="Top" Width="153" Click="ChangeBankNameButton_Click"/>
         <Image HorizontalAlignment="Left" Height="87" Margin="24,21,0,0"
             VerticalAlignment="Top" Width="74" Source="/8176383.png"
             RenderTransformOrigin="0.809,0.517"/>

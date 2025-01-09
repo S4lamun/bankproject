@@ -83,7 +83,7 @@ namespace bankproject_GUI
             {
                 LoadingGif.Visibility = Visibility.Visible;
 
-                await Task.Delay(3000);
+                await Task.Delay(2000);
 
                 LoadingGif.Visibility = Visibility.Hidden;
                 PlayClickSound();
