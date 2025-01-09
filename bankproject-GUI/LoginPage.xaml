@@ -12,7 +12,14 @@
 
         <StackPanel Width="400" Margin="17,59,70,149" Background="#8AAAE5"/>
 
-
+        <MediaElement x:Name="LoadingGif"
+      Source="loading.gif"
+      Width="74" Height="54"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Top"
+      Margin="69,191,0,0"
+      LoadedBehavior="Play"
+      Visibility="Hidden" />
 
         <Button x:Name="LogInButton" Content="LOG IN" HorizontalAlignment="Left" Height="60"
                 Margin="140,185,0,0" VerticalAlignment="Top" Width="167"
@@ -59,13 +66,6 @@
                RenderTransformOrigin="0.809,0.517"/>
         <TextBox x:Name="BankNameBox"  HorizontalAlignment="Left"  Height="30" Margin="56,0,0,245" TextWrapping="Wrap" Text="BankName" VerticalAlignment="Bottom" Width="187" FontSize="21" FontWeight="Bold"/>
 
-        <MediaElement x:Name="LoadingGif"
-              Source="/loading.gif"
-              Width="74" Height="54"
-              HorizontalAlignment="Left"
-              VerticalAlignment="Top"
-              Margin="69,191,0,0"
-              LoadedBehavior="Play"
-              Visibility="Hidden" />
+        
     </Grid>
 </Page>
