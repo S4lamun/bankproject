@@ -19,9 +19,7 @@ using bankproject;
 
 namespace bankproject_GUI
 {
-    /// <summary>
-    /// Logika interakcji dla klasy AdminPage.xaml
-    /// </summary>
+    
     public partial class AdminPage : Page
     {
         BankEmployee employee;
@@ -42,9 +40,14 @@ namespace bankproject_GUI
         {
             mainWindow.MainFrame.Navigate(new LoginPage(mainWindow,bank));
             bank.SaveXml("../../../../MyBank.xml");
+            bank.accounts.Clear();
+            bank.bankEmployees.Clear();
+            bank.accountsForXML.Clear();
+            bank.employeesForXML.Clear();
+
 
         }
-       
+
         private void SortButton_Click(Object sender, RoutedEventArgs e) // sth not working
         {
             bank.Sort();
@@ -76,7 +79,7 @@ namespace bankproject_GUI
         private void AddNewEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
             AddBankEmployeeWindow addBankEmployeeWindow = new AddBankEmployeeWindow();
-            if (addBankEmployeeWindow.ShowDialog() == true) // Otwórz okno i czekaj na zatwierdzenie
+            if (addBankEmployeeWindow.ShowDialog() == true) 
             {
                 if (addBankEmployeeWindow.NewEmployee != null)
                 {
@@ -95,7 +98,7 @@ namespace bankproject_GUI
 
         private void RemoveEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            // Otwieramy okno, w którym użytkownik wpisuje EmployeeID i hasło
+            
             RemoveEmployeeWindow removeEmployeeWindow = new RemoveEmployeeWindow(bank);
             removeEmployeeWindow.ShowDialog();
 

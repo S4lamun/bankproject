@@ -37,19 +37,18 @@ namespace bankproject_GUI
                 return;
             }
 
-            // Próbujemy znaleźć konto na podstawie PESEL i hasła w liście accountsForXML
-            Account accountToRemove = bank.accountsForXML
-                .FirstOrDefault(a => a.Owner.Pesel == pesel && a.Password == password);
+            
+            Account accountToRemove = bank.accountsForXML.FirstOrDefault(a => a.Owner.Pesel == pesel && a.Password == password);
 
             if (accountToRemove != null)
             {
                 try
                 {
-                    // Usuwamy konto z banku
+                    
                     bank.RemoveAccount(accountToRemove);
                     MessageBox.Show("Account removed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    // Zamykamy okno
+                    
                     this.Close();
                 }
                 catch (Exception ex)

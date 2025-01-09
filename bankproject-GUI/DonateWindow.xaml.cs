@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace bankproject_GUI
 {
-    /// <summary>
-    /// Logika interakcji dla klasy WithdrawWindow.xaml
-    /// </summary>
+    
     public partial class DonateWindow : Window
     {
         private Account user;
@@ -26,7 +24,7 @@ namespace bankproject_GUI
         {
             InitializeComponent();
             this.user = user;
-            BalanceTextBox.Text = $"{user.Balance:C}"; // Wyświetlenie salda w formacie walutowym
+            BalanceTextBox.Text = $"{user.Balance:C}"; 
         }
 
         private void DonateButton_Click(object sender, RoutedEventArgs e)
@@ -35,13 +33,13 @@ namespace bankproject_GUI
             {
                 
                 
-                    user.Donate(donateAmount); // Wywołanie funkcji Withdraw
-                    BalanceTextBox.Text = $"{user.Balance:C}"; // Zaktualizowanie salda
+                    user.Donate(donateAmount); 
+                    BalanceTextBox.Text = $"{user.Balance:C}"; 
                     MessageBox.Show($"Successfully donated {donateAmount:C}.", "Transaction Successful", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    // Ustawienie DialogResult na true po udanej transakcji
+                    
                     this.DialogResult = true;
-                    this.Close(); // Zamknięcie okna po sukcesie
+                    this.Close(); 
                
                
                
@@ -54,9 +52,9 @@ namespace bankproject_GUI
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            // Ustawienie DialogResult na false przy anulowaniu
+            
             this.DialogResult = false;
-            this.Close(); // Zamknięcie okna
+            this.Close(); 
         }
     }
 }

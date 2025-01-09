@@ -30,14 +30,14 @@ namespace bankproject_GUI
         {
             try
             {
-                // Pobranie danych nowego użytkownika
+                
                 string firstName = FirstNameTextBox.Text;
                 string lastName = LastNameTextBox.Text;
                 string pesel = PeselTextBox.Text;
                 var selectedSexItem = SexComboBox.SelectedItem as ComboBoxItem;
                 EnumSex sex = selectedSexItem?.Tag?.ToString() == "M" ? EnumSex.M : EnumSex.K;
 
-                // Sprawdzanie danych
+               
                 if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
                     string.IsNullOrEmpty(pesel) || SexComboBox.SelectedItem == null)
                 {
@@ -45,10 +45,10 @@ namespace bankproject_GUI
                     return;
                 }
 
-                // Tworzenie klienta
+              
                 var newCustomer = new BankCustomer(firstName, lastName, pesel, sex);
 
-                // Pobranie danych konta
+                
                 string password = PasswordBox.Password;
                 if (!decimal.TryParse(BalanceTextBox.Text, out decimal balance))
                 {
@@ -56,22 +56,22 @@ namespace bankproject_GUI
                     return;
                 }
 
-                // Sprawdzanie danych konta
+                
                 if (string.IsNullOrEmpty(password))
                 {
                     MessageBox.Show("Please enter a password!", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
-                // Tworzenie konta
+                
                 var newAccount = new Account(newCustomer, password, balance);
 
-                // Dodawanie konta do banku
+                
                 bank.AddAccount(newAccount);
-                AccountAdded = true; // Konto zostało dodane
+                AccountAdded = true; 
                 MessageBox.Show("Account added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                // Zamknięcie okna
+               
                 this.Close();
             }
             catch (Exception ex)

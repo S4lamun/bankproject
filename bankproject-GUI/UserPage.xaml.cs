@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace bankproject_GUI
 {
-    /// <summary>
-    /// Logika interakcji dla klasy UserPage.xaml
-    /// </summary>
+   
     public partial class UserPage : Page
     {
 
@@ -76,11 +74,16 @@ namespace bankproject_GUI
         private void LogoutButton_Click(Object sender, RoutedEventArgs e)
         {
             mainWindow.MainFrame.Navigate( new LoginPage(mainWindow, bank));
-            bank.SaveXml("../../../../MyBank.xml"); 
+            bank.SaveXml("../../../../MyBank.xml");
+            bank.accounts.Clear();
+            bank.bankEmployees.Clear();
+            bank.accountsForXML.Clear();
+            bank.employeesForXML.Clear();
+
 
         }
-        
-        
+
+
 
 
 

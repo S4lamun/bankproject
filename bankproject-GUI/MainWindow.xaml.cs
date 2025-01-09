@@ -23,6 +23,7 @@ namespace bankproject_GUI
         public MainWindow()
         {
             InitializeComponent();
+            this.ResizeMode = ResizeMode.NoResize;
             MainFrame.Navigate(new MainPage(this));
 
 

@@ -28,7 +28,7 @@ namespace bankproject_GUI
         {
             try
             {
-                // Pobranie danych z pól
+                
                 string name = NameTextBox.Text.Trim();
                 string surname = SurnameTextBox.Text.Trim();
                 string pesel = PeselTextBox.Text.Trim();
@@ -36,7 +36,7 @@ namespace bankproject_GUI
                 long employeeID = long.Parse(EmployeeIDTextBox.Text.Trim());
                 string password = PasswordBox.Password.Trim();
 
-                // Walidacja danych
+               
                 if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname) ||
                     string.IsNullOrWhiteSpace(pesel) || string.IsNullOrWhiteSpace(password))
                 {
@@ -44,10 +44,10 @@ namespace bankproject_GUI
                     return;
                 }
 
-                // Tworzenie nowego pracownika
+                
                 NewEmployee = new BankEmployee(name, surname, pesel, sex, employeeID, password);
 
-                // Zamknięcie okna z wynikiem sukcesu
+                
                 DialogResult = true;
                 Close();
             }

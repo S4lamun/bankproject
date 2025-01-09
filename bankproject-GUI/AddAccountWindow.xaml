@@ -1,7 +1,8 @@
 ﻿<Window x:Class="bankproject_GUI.AddAccountWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Add Account" Height="450" Width="400">
+        Title="Add Account" Height="450" Width="400"
+        ResizeMode="NoResize">
     <StackPanel Orientation="Vertical" Margin="10">
         <TextBlock Text="Add New Account with New Customer" TextAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10,0,5" FontSize="16" Background="#FF8AAAE5" Width="357"/>
 

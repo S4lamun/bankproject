@@ -9,9 +9,9 @@ namespace bankproject;
 [XmlInclude(typeof(BankEmployee))]
 public class Bank : IBank //it's for admin 
 {
-    [XmlIgnore] public static Dictionary<long, Account> accounts;
+    [XmlIgnore] public  Dictionary<long, Account> accounts;
 
-    [XmlIgnore] public static Dictionary<long, BankEmployee> bankEmployees;
+    [XmlIgnore] public  Dictionary<long, BankEmployee> bankEmployees;
 
     public List<Account> accountsForXML;
 

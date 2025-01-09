@@ -42,18 +42,18 @@ namespace bankproject_GUI
                 return;
             }
 
-            // Próbujemy znaleźć pracownika na podstawie EmployeeID i hasła
+            
             BankEmployee employeeToRemove = bank.employeesForXML.FirstOrDefault(e => e.EmployeeID == employeeID && e.EmployeePassword == password);
 
             if (employeeToRemove != null)
             {
                 try
                 {
-                    // Usuwamy pracownika z banku
+                    
                     bank.RemoveEmployee(employeeToRemove);
                     MessageBox.Show("Employee removed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    // Zamykamy okno
+                    
                     this.Close();
                 }
                 catch (Exception ex)

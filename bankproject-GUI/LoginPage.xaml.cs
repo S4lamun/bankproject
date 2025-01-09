@@ -105,9 +105,14 @@ namespace bankproject_GUI
                 PlayClickSound2();
                 NoAccountWindow noAccountWindow = new NoAccountWindow();
                 noAccountWindow.ShowDialog();
+                b1.accounts.Clear();
+                b1.bankEmployees.Clear();
+                b1.accountsForXML.Clear();
+                b1.employeesForXML.Clear();
+
             }
-            
-            
+
+
         }
         
     }

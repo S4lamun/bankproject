@@ -19,9 +19,7 @@ using bankproject;
 using System.Media;
 namespace bankproject_GUI
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainPage.xaml
-    /// </summary>
+   
     public partial class MainPage : Page
     {
         Bank b1 = new("myBank");

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bankproject_GUI"
         mc:Ignorable="d"
-        Title="ChangeBankNameWindow" Height="260" Width="515">
+        Title="ChangeBankNameWindow" Height="260" Width="515"
+        ResizeMode="NoResize">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Height="54" Margin="30,22,0,0" TextWrapping="Wrap" FontWeight="Bold"  Text="Set new bank name:" VerticalAlignment="Top" Width="379" FontSize="21"/>
         <TextBox x:Name="SetNewBankName" TextWrapping="Wrap" Text=" " Margin="30,81,114,108"/>
