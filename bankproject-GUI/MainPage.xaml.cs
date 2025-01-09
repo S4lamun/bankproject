@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using bankproject;
+using System.Media;
 namespace bankproject_GUI
 {
     /// <summary>
@@ -24,7 +25,7 @@ namespace bankproject_GUI
     public partial class MainPage : Page
     {
         Bank b1 = new("myBank");
-        
+        private MediaPlayer m_MediaPlayer;
         private MainWindow mainWindow;
         public MainPage(MainWindow mainWindow)
         {
@@ -32,23 +33,51 @@ namespace bankproject_GUI
             
             this.mainWindow = mainWindow;
             BankNameBox.Text = b1.name;
+
+
+            m_MediaPlayer = new MediaPlayer();
+            string soundPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "button.mp3");
+
+            if (File.Exists(soundPath))
+            {
+                m_MediaPlayer.Open(new Uri(soundPath));
+            }
+            else
+            {
+                MessageBox.Show("Nie znaleziono pliku dźwiękowego!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
-        private void Pytas_click(object sender, RoutedEventArgs e)
+        private void PlayClickSound()
         {
-            MessageBox.Show("pytas a wiesz", ".", MessageBoxButton.OK, MessageBoxImage.Question);
+            if (m_MediaPlayer.Source != null)
+            {
+                m_MediaPlayer.Position = TimeSpan.Zero; 
+                m_MediaPlayer.Play();
+            }
         }
+        private void PlayClickSound2()
+        {
+            if (m_MediaPlayer.Source != null)
+            {
+                m_MediaPlayer.Position = TimeSpan.Zero;
+                m_MediaPlayer.Play();
+            }
+        }
+
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            PlayClickSound();
             if (mainWindow == null)
             {
                 MessageBox.Show("MainWindow reference is null!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
+            
             mainWindow.MainFrame.Navigate(new LoginPage(mainWindow, b1));
         }
         private void AboutUsButton_Click(Object sender, RoutedEventArgs e)
         {
+            PlayClickSound();
             string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AboutUs", "AboutUs.pdf");
             if (File.Exists(filePath))
             {
@@ -62,6 +91,7 @@ namespace bankproject_GUI
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
+            PlayClickSound();
             Application.Current.Shutdown();
         }
 

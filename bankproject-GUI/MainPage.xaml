@@ -48,10 +48,7 @@
              HorizontalAlignment="Center" VerticalAlignment="Top" 
              Width="142" Background="#FF8AAAE5" Margin="0,241,0,0" 
              Click="ExitButton_Click" />
-        <Button Content="Pytas" FontWeight="Bold" Height="30" 
-     HorizontalAlignment="Left" VerticalAlignment="Top" 
-     Width="142" Background="#FF8AAAE5" Margin="370,336,0,0" 
-     Click="Pytas_click" />
+       
         <Image HorizontalAlignment="Left" Height="64" Margin="261,29,0,0" VerticalAlignment="Top" Width="53" Source="/8176383.png"/>
     </Grid>
 </Page>

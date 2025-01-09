@@ -12,10 +12,7 @@
 
         <StackPanel Width="400" Margin="17,59,70,149" Background="#8AAAE5"/>
 
-        <TextBlock x:Name="LogInText" HorizontalAlignment="Left" Height="86" Margin="51,59,0,0"
-                   TextWrapping="Wrap" VerticalAlignment="Top" Width="410" FontWeight="Bold">
-            <Run Language="pl-pl" Text="Log in"/>
-        </TextBlock>
+
 
         <Button x:Name="LogInButton" Content="LOG IN" HorizontalAlignment="Left" Height="60"
                 Margin="140,185,0,0" VerticalAlignment="Top" Width="167"
@@ -61,5 +58,14 @@
                VerticalAlignment="Top" Width="32" Source="/8176383.png"
                RenderTransformOrigin="0.809,0.517"/>
         <TextBox x:Name="BankNameBox"  HorizontalAlignment="Left"  Height="30" Margin="56,0,0,245" TextWrapping="Wrap" Text="BankName" VerticalAlignment="Bottom" Width="187" FontSize="21" FontWeight="Bold"/>
+
+        <MediaElement x:Name="LoadingGif"
+              Source="file:///C:/Users/ajasi/source/repos/bankproject/bankproject-GUI/loading.gif"
+              Width="74" Height="54"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Margin="69,191,0,0"
+              LoadedBehavior="Play"
+              Visibility="Hidden" />
     </Grid>
 </Page>
