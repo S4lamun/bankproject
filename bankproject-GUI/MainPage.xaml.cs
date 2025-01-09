@@ -36,7 +36,7 @@ namespace bankproject_GUI
 
 
             m_MediaPlayer = new MediaPlayer();
-            string soundPath = @"C:\Users\ajasi\source\repos\bankproject\Images\button.mp3";
+            string soundPath = System.IO.Path.GetFullPath(@"..\..\..\..\Images\button.mp3");
 
             if (File.Exists(soundPath))
             {
