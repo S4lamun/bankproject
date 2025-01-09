@@ -4,7 +4,7 @@
     <Account>
       <Password>HASELKO1</Password>
       <AccountNumber>1</AccountNumber>
-      <Balance>18</Balance>
+      <Balance>30</Balance>
       <Owner>
         <name>Marian</name>
         <sex>M</sex>
@@ -15,7 +15,7 @@
     <Account>
       <Password>HASELKO2</Password>
       <AccountNumber>2</AccountNumber>
-      <Balance>507</Balance>
+      <Balance>1581</Balance>
       <Owner>
         <name>Maja</name>
         <sex>K</sex>
@@ -26,7 +26,7 @@
     <Account>
       <Password>HASELKO3</Password>
       <AccountNumber>3</AccountNumber>
-      <Balance>1500</Balance>
+      <Balance>770</Balance>
       <Owner>
         <name>Hania</name>
         <sex>K</sex>
@@ -45,5 +45,5 @@
       <EmployeeID>1</EmployeeID>
     </BankEmployee>
   </employeesForXML>
-  <name>MyBank</name>
+  <name>myBank</name>
 </Bank>
