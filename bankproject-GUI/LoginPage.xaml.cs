@@ -33,8 +33,8 @@ namespace bankproject_GUI
         {
             m_MediaPlayer = new MediaPlayer();
             e_MediaPlayer = new MediaPlayer();
-            string soundPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "button.mp3");
-            string errorPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "error.mp3");
+            string soundPath = @"C:\Users\ajasi\source\repos\bankproject\Images\button.mp3";
+            string errorPath = @"C:\Users\ajasi\source\repos\bankproject\Images\error.mp3";
             if (File.Exists(soundPath))
             {
                 m_MediaPlayer.Open(new Uri(soundPath));

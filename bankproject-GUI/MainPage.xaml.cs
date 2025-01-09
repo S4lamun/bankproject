@@ -36,7 +36,7 @@ namespace bankproject_GUI
 
 
             m_MediaPlayer = new MediaPlayer();
-            string soundPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "button.mp3");
+            string soundPath = @"C:\Users\ajasi\source\repos\bankproject\Images\button.mp3";
 
             if (File.Exists(soundPath))
             {
@@ -55,14 +55,7 @@ namespace bankproject_GUI
                 m_MediaPlayer.Play();
             }
         }
-        private void PlayClickSound2()
-        {
-            if (m_MediaPlayer.Source != null)
-            {
-                m_MediaPlayer.Position = TimeSpan.Zero;
-                m_MediaPlayer.Play();
-            }
-        }
+        
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
