@@ -2,36 +2,69 @@
 <Bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <accountsForXML>
     <Account>
-      <Password>HASELKO1</Password>
-      <AccountNumber>1</AccountNumber>
-      <Balance>30</Balance>
+      <Password>kNowak1</Password>
+      <AccountNumber>4</AccountNumber>
+      <Balance>2500</Balance>
       <Owner>
-        <name>Marian</name>
+        <name>Karolina</name>
+        <sex>K</sex>
+        <surname>Nowak</surname>
+        <Pesel>46032844780</Pesel>
+      </Owner>
+    </Account>
+    <Account>
+      <Password>Krajewska99</Password>
+      <AccountNumber>5</AccountNumber>
+      <Balance>222</Balance>
+      <Owner>
+        <name>Nadia</name>
+        <sex>K</sex>
+        <surname>Krajewska</surname>
+        <Pesel>46032664768</Pesel>
+      </Owner>
+    </Account>
+    <Account>
+      <Password>KacSzym203</Password>
+      <AccountNumber>6</AccountNumber>
+      <Balance>780</Balance>
+      <Owner>
+        <name>Kacper</name>
         <sex>M</sex>
-        <surname>Warzecha</surname>
-        <Pesel>78787878787</Pesel>
+        <surname>Szymański</surname>
+        <Pesel>94030297154</Pesel>
       </Owner>
     </Account>
     <Account>
-      <Password>HASELKO2</Password>
-      <AccountNumber>2</AccountNumber>
-      <Balance>1581</Balance>
+      <Password>SIkoraaa32</Password>
+      <AccountNumber>7</AccountNumber>
+      <Balance>643</Balance>
       <Owner>
-        <name>Maja</name>
-        <sex>K</sex>
-        <surname>Ujoska</surname>
-        <Pesel>66666666666</Pesel>
+        <name>Dawid</name>
+        <sex>M</sex>
+        <surname>Sikorski</surname>
+        <Pesel>32022724895</Pesel>
       </Owner>
     </Account>
     <Account>
-      <Password>HASELKO3</Password>
-      <AccountNumber>3</AccountNumber>
-      <Balance>770</Balance>
+      <Password>MiLas84</Password>
+      <AccountNumber>8</AccountNumber>
+      <Balance>316</Balance>
       <Owner>
-        <name>Hania</name>
+        <name>Michalina </name>
         <sex>K</sex>
-        <surname>Genzi</surname>
-        <Pesel>65656565656</Pesel>
+        <surname>Laskowska</surname>
+        <Pesel>14230844480</Pesel>
+      </Owner>
+    </Account>
+    <Account>
+      <Password>BorkowskaL329</Password>
+      <AccountNumber>9</AccountNumber>
+      <Balance>300</Balance>
+      <Owner>
+        <name>Lena</name>
+        <sex>K</sex>
+        <surname>Borkowska</surname>
+        <Pesel>51060379207</Pesel>
       </Owner>
     </Account>
   </accountsForXML>

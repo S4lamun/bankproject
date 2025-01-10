@@ -32,7 +32,11 @@ namespace bankproject_GUI
             if (decimal.TryParse(DonateAmountTextBox.Text, out decimal donateAmount))
             {
                 
-                
+                if(donateAmount<0)
+                {
+                    MessageBox.Show($"The amount is invalid", "Donation Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                     user.Donate(donateAmount); 
                     BalanceTextBox.Text = $"{user.Balance:C}"; 
                     MessageBox.Show($"Successfully donated {donateAmount:C}.", "Transaction Successful", MessageBoxButton.OK, MessageBoxImage.Information);

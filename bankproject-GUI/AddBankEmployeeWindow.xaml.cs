@@ -18,10 +18,12 @@ namespace bankproject_GUI
     public partial class AddBankEmployeeWindow : Window
     {
         public BankEmployee? NewEmployee { get; private set; }
-
-        public AddBankEmployeeWindow()
+        public Bank bank { get; private set; }
+        public AddBankEmployeeWindow(Bank bank)
         {
+
             InitializeComponent();
+            this.bank = bank;
         }
 
         private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)
@@ -35,12 +37,17 @@ namespace bankproject_GUI
                 EnumSex sex = (SexComboBox.SelectedItem as ComboBoxItem)?.Tag.ToString() == "M" ? EnumSex.M : EnumSex.K;
                 long employeeID = long.Parse(EmployeeIDTextBox.Text.Trim());
                 string password = PasswordBox.Password.Trim();
-
+                
                
                 if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname) ||
                     string.IsNullOrWhiteSpace(pesel) || string.IsNullOrWhiteSpace(password))
                 {
                     MessageBox.Show("All fields must be filled.");
+                    return;
+                }
+                if(bank.bankEmployees.ContainsKey(employeeID))
+                {
+                    MessageBox.Show($"Employee with this ID already exists","Error",MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 

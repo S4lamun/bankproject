@@ -78,7 +78,7 @@ namespace bankproject_GUI
 
         private void AddNewEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            AddBankEmployeeWindow addBankEmployeeWindow = new AddBankEmployeeWindow();
+            AddBankEmployeeWindow addBankEmployeeWindow = new AddBankEmployeeWindow(bank);
             if (addBankEmployeeWindow.ShowDialog() == true) 
             {
                 if (addBankEmployeeWindow.NewEmployee != null)
