@@ -29,7 +29,9 @@ namespace bankproject_GUI
 
         }
 
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
 
-
+        }
     }
 }

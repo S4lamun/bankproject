@@ -31,7 +31,7 @@ namespace bankproject_GUI
             this.bank = bank;
             NameBox.Text = $"{user.Owner.name} {user.Owner.surname}";
             BalanceBox.Text = $"{user.Balance:C}";
-            BankNameBox.Text = bank.name;
+            
         }
 
         private void WithdrawButton_Click(object sender, RoutedEventArgs e)

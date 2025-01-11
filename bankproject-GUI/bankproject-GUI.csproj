@@ -11,7 +11,9 @@
 
   <ItemGroup>
     <None Remove="8176383.png" />
+    <None Remove="account.png" />
     <None Remove="loading.gif" />
+    <None Remove="money_Icon.png" />
     <None Remove="password-148.png" />
   </ItemGroup>
 
@@ -30,6 +32,8 @@
     <Content Include="loading.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="account.png" />
+    <Resource Include="money_Icon.png" />
     <Resource Include="password-148.png" />
   </ItemGroup>
 

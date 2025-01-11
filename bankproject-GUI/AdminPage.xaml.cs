@@ -32,8 +32,7 @@ namespace bankproject_GUI
             employee = mainWindow.LoggedInBankEmployee;
             this.bank = bank;
             AccountList.ItemsSource = new ObservableCollection<Account>(bank.accountsForXML);
-            //BankName.Text = bank.name;
-            BankNameBox.Text = bank.name;
+            
         }
 
         private void LogoutButton_Click(Object sender, RoutedEventArgs e)

@@ -15,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using bankproject;
 using System.Media;
 namespace bankproject_GUI
 {
@@ -30,7 +29,7 @@ namespace bankproject_GUI
             InitializeComponent();
             
             this.mainWindow = mainWindow;
-            BankNameBox.Text = b1.name;
+            //BankNameBox.Text = b1.name;
 
 
             m_MediaPlayer = new MediaPlayer();

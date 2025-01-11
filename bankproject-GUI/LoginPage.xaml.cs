@@ -18,6 +18,8 @@ using bankproject;
 using System.Media;
 using System.IO;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Animation;
+using WpfAnimatedGif;
 namespace bankproject_GUI
 {
     /// <summary>
@@ -54,9 +56,17 @@ namespace bankproject_GUI
             InitializeComponent();
             this.b1 = bank;
             this.mainWindow = mainWindow;
-            BankNameBox.Text = b1.name;
+            var gifSource = new Uri("pack://application:,,,/loading.gif"); // Adjust path as needed
+            ImageBehavior.SetAnimatedSource(LoadingGif, new System.Windows.Media.Imaging.BitmapImage(gifSource));
+
+            ImageBehavior.SetRepeatBehavior(LoadingGif, RepeatBehavior.Forever);
 
         }
+        private void ShowLoadingGif(bool isVisible)
+        {
+            LoadingGif.Visibility = isVisible ? Visibility.Visible : Visibility.Hidden;
+        }
+       
         private void PlayClickSound()
         {
             if (m_MediaPlayer.Source != null)
@@ -81,21 +91,22 @@ namespace bankproject_GUI
             
             if(b1.FindEmployee(password) is not null)
             {
-                LoadingGif.Visibility = Visibility.Visible;
+                ShowLoadingGif(true);
 
                 await Task.Delay(2000);
-
-                LoadingGif.Visibility = Visibility.Hidden;
+                ShowLoadingGif(false);
+                ImageBehavior.SetAutoStart(LoadingGif, false);
                 PlayClickSound();
                 mainWindow.MainFrame.Navigate(new AdminPage(mainWindow, b1));
                 mainWindow.LoggedInBankEmployee = b1.FindEmployee(password);
             }
             else if(b1.FindAccount(password) is not null)
             {
-                LoadingGif.Visibility = Visibility.Visible;
+                ShowLoadingGif(true);
 
                 await Task.Delay(2000);
-                LoadingGif.Visibility = Visibility.Hidden;
+                ShowLoadingGif(false);
+                ImageBehavior.SetAutoStart(LoadingGif, false);
                 PlayClickSound();
                 mainWindow.LoggedInUser = b1.FindAccount(password);
                 mainWindow.MainFrame.Navigate(new UserPage(mainWindow, b1));
