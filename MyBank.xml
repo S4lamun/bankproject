@@ -2,13 +2,13 @@
 <Bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <accountsForXML>
     <Account>
-      <Password>Blablacar1</Password>
-      <AccountNumber>10</AccountNumber>
-      <Balance>999999900000100</Balance>
+      <Password>Barcelona11</Password>
+      <AccountNumber>11</AccountNumber>
+      <Balance>100</Balance>
       <Owner>
-        <name>Bartek</name>
-        <sex>K</sex>
-        <surname>Tasak</surname>
+        <name>Robert</name>
+        <sex>M</sex>
+        <surname>Prawondolski</surname>
         <Pesel>12312312311</Pesel>
       </Owner>
     </Account>
@@ -79,13 +79,13 @@
       </Owner>
     </Account>
     <Account>
-      <Password>Barcelona11</Password>
-      <AccountNumber>11</AccountNumber>
-      <Balance>100</Balance>
+      <Password>Blablacar1</Password>
+      <AccountNumber>10</AccountNumber>
+      <Balance>999999900000100</Balance>
       <Owner>
-        <name>Robert</name>
-        <sex>M</sex>
-        <surname>Prawondolski</surname>
+        <name>Bartek</name>
+        <sex>K</sex>
+        <surname>Tasak</surname>
         <Pesel>12312312311</Pesel>
       </Owner>
     </Account>
@@ -98,6 +98,14 @@
       <Pesel>11111111111</Pesel>
       <EmployeePassword>HasloPracownika1</EmployeePassword>
       <EmployeeID>1</EmployeeID>
+    </BankEmployee>
+    <BankEmployee>
+      <name>Wojciech</name>
+      <sex>M</sex>
+      <surname>Jarosz</surname>
+      <Pesel>03623567601</Pesel>
+      <EmployeePassword>HasloPracownika2</EmployeePassword>
+      <EmployeeID>2</EmployeeID>
     </BankEmployee>
   </employeesForXML>
   <name>myBank</name>
