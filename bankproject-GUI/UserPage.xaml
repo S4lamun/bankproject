@@ -44,7 +44,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid Background="{StaticResource BackgroundBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid Background="{StaticResource BackgroundBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Cursor="">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -61,7 +61,7 @@
         <TextBox x:Name="BalanceBox" HorizontalAlignment="Left" Height="34" Margin="49,133,0,0" TextWrapping="Wrap" Text="BalanceBox" VerticalAlignment="Top" Width="200" IsReadOnly="True" FontSize="14" Foreground="Black"/>
 
         <Button x:Name="WithdrawButton" Content="Withdraw" HorizontalAlignment="Left" Height="81" Margin="96,77,0,0" VerticalAlignment="Top" Width="162" Click="WithdrawButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
-        <Button x:Name="DonateButton" Content="Deposit" HorizontalAlignment="Center" Height="81" Margin="0,77,0,0" VerticalAlignment="Top" Width="162  " Click="DonateButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
+        <Button x:Name="DonateButton" Content="Donate" HorizontalAlignment="Center" Height="81" Margin="0,77,0,0" VerticalAlignment="Top" Width="162" Click="DonateButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
         <Button x:Name="TransferButton" Content="Transfer" HorizontalAlignment="Right" Height="81" Margin="0,77,94,0" VerticalAlignment="Top" Width="162" Click="TransferButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
         <Button x:Name="LogoutButton" Content="Logout and save" HorizontalAlignment="Center" Height="60" Margin="0,371,0,0" VerticalAlignment="Top" Width="132" Click="LogoutButton_Click" Style="{StaticResource StyledButton}" Grid.RowSpan="2"/>
         <Image HorizontalAlignment="Left" Height="37" Margin="7,84,0,0" VerticalAlignment="Top" Width="35" Source="/account.png"/>
